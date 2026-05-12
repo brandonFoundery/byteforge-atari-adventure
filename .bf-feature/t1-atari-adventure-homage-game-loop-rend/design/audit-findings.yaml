@@ -1,0 +1,38 @@
+schema: audit-findings-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+findings:
+  - severity: info
+    location: design/components.yaml
+    description: All 15 REQ-IDs from elicit/requirements.yaml are covered exactly once across six components. No missing or duplicate coverage.
+    suggested_fix: No action required.
+
+  - severity: info
+    location: design/contracts/interfaces.cs
+    description: Every interface carries req tags within the doc-comment immediately before the interface keyword. All 15 REQ-IDs appear.
+    suggested_fix: No action required.
+
+  - severity: info
+    location: design/tests/acceptance/AcceptanceTests.cs
+    description: Exactly 15 [Fact] methods with Assert.Fail("REQ-XXXXXX...") bodies. Witness comment present.
+    suggested_fix: No action required.
+
+  - severity: info
+    location: design/traces/req-to-artifact.csv
+    description: Header + 15 data rows, consistent with components.yaml and interfaces.cs.
+    suggested_fix: No action required.
+
+  - severity: low
+    location: design/components.yaml
+    description: CMP-aa1be2, CMP-bb2c3d, and CMP-cc3d4e all share files_owned [adventure.py]. This is logical (per-section) ownership, not file-level exclusivity, which is acceptable for a single-file pygame script.
+    suggested_fix: Document that adventure.py ownership is logical per component, or optionally merge into one component. Advisory only.
+
+  - severity: low
+    location: design/contracts/schemas.json
+    description: GameConfig, RoomColors, and ExitSignal are defined but not explicitly cross-referenced in req-to-artifact.csv. Schemas are traceable through the component interfaces but not via a direct schema column.
+    suggested_fix: Optionally add schema_refs to component entries referencing the schemas they consume.
+
+  - severity: info
+    location: design/contracts/schemas.json
+    description: feature_witness bdb1c1b58ad0547a present. logicalWidth=160, logicalHeight=210, targetFps=30, scale 3-4 align with REQ-AFFA38 and REQ-AAF862.
+    suggested_fix: No action required.

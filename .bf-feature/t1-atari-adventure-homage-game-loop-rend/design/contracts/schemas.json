@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "adventure-contracts-v1",
+  "title": "Atari Adventure Homage — Design Contracts",
+  "feature_slug": "t1-atari-adventure-homage-game-loop-rend",
+  "feature_witness": "bdb1c1b58ad0547a",
+  "$defs": {
+    "GameConfig": {
+      "type": "object",
+      "description": "Compile-time constants that govern window geometry, timing, and player placement.",
+      "required": [
+        "logicalWidth",
+        "logicalHeight",
+        "scale",
+        "targetFps",
+        "wallThickness",
+        "playerSize",
+        "playerStartX",
+        "playerStartY"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "logicalWidth": {
+          "type": "integer",
+          "const": 160,
+          "description": "Logical pixel width of the game window before scaling."
+        },
+        "logicalHeight": {
+          "type": "integer",
+          "const": 210,
+          "description": "Logical pixel height of the game window before scaling."
+        },
+        "scale": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 4,
+          "description": "Integer scale factor applied to logical dimensions for physical window size."
+        },
+        "targetFps": {
+          "type": "integer",
+          "const": 30,
+          "description": "Target frames per second enforced by pygame.time.Clock().tick()."
+        },
+        "wallThickness": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Pixel thickness of each perimeter wall rectangle."
+        },
+        "playerSize": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Side length of the player square in logical pixels."
+        },
+        "playerStartX": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Deterministic X coordinate of the player square's top-left corner at startup."
+        },
+        "playerStartY": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Deterministic Y coordinate of the player square's top-left corner at startup."
+        }
+      }
+    },
+    "RoomColors": {
+      "type": "object",
+      "description": "Color palette for the room. All values are CSS hex color strings (#RRGGBB).",
+      "required": ["background", "wall", "player"],
+      "additionalProperties": false,
+      "properties": {
+        "background": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Solid fill color of the inner room area."
+        },
+        "wall": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Fill color of the four perimeter wall rectangles."
+        },
+        "player": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Fill color of the player square."
+        }
+      }
+    },
+    "ExitSignal": {
+      "type": "object",
+      "description": "Represents the signal that caused the main loop to exit.",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["ESC", "OS_CLOSE"],
+          "description": "ESC = KEYDOWN pygame.K_ESCAPE; OS_CLOSE = pygame.QUIT event."
+        }
+      }
+    }
+  }
+}
