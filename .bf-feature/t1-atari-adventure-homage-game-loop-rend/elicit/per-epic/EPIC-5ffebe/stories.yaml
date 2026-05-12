@@ -1,0 +1,23 @@
+schema: stories-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+stories:
+  - schema: story-v1
+    story_id: STORY-6ff1f2
+    epic_id: EPIC-5ffebe
+    title: FPS clock pacing
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - The main loop ticks at approximately 30 FPS and returns control to the event loop each frame
+      - pygame.time.Clock().tick(30) persists the frame rate cap across all loop iterations
+
+  - schema: story-v1
+    story_id: STORY-60ea4b
+    epic_id: EPIC-5ffebe
+    title: Clean exit handling
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - ESC key press emits a quit signal that exits the main loop and calls pygame.quit()
+      - OS window close event emits a quit signal that exits the main loop and calls pygame.quit()

@@ -1,0 +1,27 @@
+schema: requirements-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+requirements:
+  - req_id: REQ-33C367
+    source_story_id: STORY-66cc46
+    assertion: SDL_VIDEODRIVER and SDL_AUDIODRIVER dummy env vars are set before pygame imports in conftest.py
+
+  - req_id: REQ-3857A0
+    source_story_id: STORY-66cc46
+    assertion: requirements.txt pins exact versions of pygame and pytest
+
+  - req_id: REQ-874B54
+    source_story_id: STORY-84e39f
+    assertion: Test verifies headless pygame initialization completes without errors
+
+  - req_id: REQ-B95A16
+    source_story_id: STORY-84e39f
+    assertion: Test asserts player starting coordinates match deterministic constants
+
+  - req_id: REQ-915D4B
+    source_story_id: STORY-84e39f
+    assertion: Test verifies ESC event causes the game loop to exit
+
+  - req_id: REQ-95C535
+    source_story_id: STORY-7cdf75
+    assertion: README documents install, run, and test commands verbatim

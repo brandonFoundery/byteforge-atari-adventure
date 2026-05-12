@@ -1,0 +1,27 @@
+schema: requirements-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+requirements:
+  - req_id: REQ-AADAC4
+    source_story_id: STORY-e14873
+    assertion: pygame.init() returns no errors during window initialization
+
+  - req_id: REQ-AFFA38
+    source_story_id: STORY-e14873
+    assertion: pygame.display.set_mode creates a window at 160x210 logical pixels scaled 3x to 4x
+
+  - req_id: REQ-07C0B4
+    source_story_id: STORY-f2c977
+    assertion: Room background renders as a single solid color rectangle filling the inner area
+
+  - req_id: REQ-82B4D1
+    source_story_id: STORY-f2c977
+    assertion: Four wall rectangles render around the full perimeter with no passage gaps
+
+  - req_id: REQ-16D6CB
+    source_story_id: STORY-46eb4e
+    assertion: Player square renders at deterministic coordinates near room center
+
+  - req_id: REQ-05A20B
+    source_story_id: STORY-46eb4e
+    assertion: Player square dimensions match configured size constant
