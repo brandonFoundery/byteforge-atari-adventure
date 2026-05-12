@@ -1,0 +1,47 @@
+{
+  "schema": "understand-verdict-v1",
+  "feature_slug": "t1-atari-adventure-homage-game-loop-rend",
+  "feature_witness": "bdb1c1b58ad0547a",
+  "judged_at": "2026-05-12T01:58:45Z",
+  "all_pass": true,
+  "blocking_failures": [],
+  "advisory_failures": [],
+  "rules": {
+    "U_RULE_1": {
+      "name": "Artifacts and witness",
+      "pass": true,
+      "status": "pass",
+      "evidence": "intent/location/impact present, parsed, witnessed"
+    },
+    "U_RULE_2": {
+      "name": "in_scope paths real",
+      "pass": true,
+      "status": "pass",
+      "evidence": "5 in_scope paths verified"
+    },
+    "U_RULE_3": {
+      "name": "success_criteria quality",
+      "pass": true,
+      "status": "pass",
+      "evidence": "7 criteria pass quality checks"
+    },
+    "U_RULE_4": {
+      "name": "risks cover mutations",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 1 mutated paths covered by risks"
+    },
+    "U_RULE_5": {
+      "name": "teachback grounding",
+      "pass": true,
+      "status": "pass",
+      "evidence": "teachback references 5 distinct location paths"
+    },
+    "U_RULE_6": {
+      "name": "Triptych blast-radius coverage",
+      "pass": true,
+      "status": "warn",
+      "evidence": "Triptych was unavailable \u2014 blast-radius check could not run"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+schema: intent-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+request_summary: >-
+  Build the first Atari Adventure homage brick in Python pygame: one
+  `adventure.py` script with a stable main loop, one fixed room render, and
+  a visible centered player square. No movement, no multi-room logic, no item
+  systems yet.
+assumptions:
+  - Python 3.10+ is available in local and CI environments.
+  - pygame and pytest are the only dependencies needed for this ticket.
+  - Headless pytest execution will use SDL dummy video and audio drivers.
+  - The window will use Atari-like proportions at roughly 160x210 logical pixels scaled up for visibility.
+success_criteria:
+  - Running `python adventure.py` opens one pygame window at about 160x210 logical pixels scaled 3x to 4x.
+  - The room background is a single solid color.
+  - Four wall rectangles render around the full perimeter with no passage gaps.
+  - A small player square renders near the room center at deterministic coordinates.
+  - The main loop ticks at about 30 FPS.
+  - ESC key press or OS close event exits the process cleanly with pygame teardown.
+  - Pytest coverage includes headless initialization, expected player coordinates, and ESC-driven loop exit.
+out_of_scope:
+  - Player movement and collision logic.
+  - Multiple rooms or room transitions.
+  - Items, dragons, win condition, and game state progression.
+  - Audio, menus, save data, and score systems.
+  - Any code split beyond the requested single `adventure.py` game file.

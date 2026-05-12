@@ -1,0 +1,43 @@
+schema: impact-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+risks:
+  - file: README.md
+    kind: docs-drift
+    severity: low
+    description: README commands can drift from the implemented entrypoint or test command.
+    mitigation: Update README after implementation and verify each documented command verbatim in a fresh environment.
+  - file: adventure.py
+    kind: loop-timing
+    severity: high
+    description: Incorrect loop pacing or event handling can cause unstable FPS or hang on quit events.
+    mitigation: Use `pygame.time.Clock().tick(30)`, handle ESC and QUIT events each frame, and add deterministic exit tests.
+  - file: adventure.py
+    kind: render-layout
+    severity: medium
+    description: Wrong logical dimensions or wall geometry can violate Atari-like proportions and wall closure expectations.
+    mitigation: Centralize constants for logical width/height, scale, wall thickness, and player coordinates; assert key values in tests.
+  - file: tests/conftest.py
+    kind: test-environment
+    severity: medium
+    description: If dummy SDL drivers are set too late, pygame may crash in headless test runs.
+    mitigation: Set `SDL_VIDEODRIVER` and `SDL_AUDIODRIVER` at import time in `tests/conftest.py` before pygame is imported.
+  - file: tests/test_adventure.py
+    kind: assertion-gaps
+    severity: medium
+    description: Weak tests can pass while regressions break initialization, center placement, or ESC exit behavior.
+    mitigation: Assert concrete dimensions, player coordinates, and loop termination semantics from synthetic ESC events.
+  - file: requirements.txt
+    kind: dependency-drift
+    severity: low
+    description: Unpinned versions can cause inconsistent behavior across machines.
+    mitigation: Pin exact package versions and keep CI using the same file.
+blast_radius:
+  - .github/workflows/
+  - .venv/
+  - LICENSE
+verification_plan:
+  - Confirm files are syntactically valid.
+  - Run `python -m py_compile adventure.py tests/test_adventure.py tests/conftest.py`.
+  - Run `SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy pytest -q tests`.
+  - Run `python adventure.py` manually and verify ESC and close-window exit behavior.

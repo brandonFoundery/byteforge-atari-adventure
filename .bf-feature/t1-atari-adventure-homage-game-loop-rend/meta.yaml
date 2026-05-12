@@ -1,0 +1,29 @@
+schema: bf-feature-meta-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+created_at: '2026-05-12T01:50:36Z'
+request_seed: 'T1 — Atari Adventure homage: game loop + render foundation (Python
+  pygame)'
+repo_head_sha: d63bfba5b6c0e79cb918446a3852369a0b4cf7af
+phase: understand_complete
+stages:
+  understand:
+    started_at: '2026-05-12T01:50:36Z'
+    completed_at: '2026-05-12T01:58:45Z'
+    verdict_path: understand/verdict.json
+    all_pass: true
+  elicit:
+    started_at: null
+    completed_at: null
+    verdict_path: elicit/verdict.json
+    all_pass: null
+  design:
+    started_at: null
+    completed_at: null
+    verdict_path: design/verdict.json
+    all_pass: null
+  task:
+    started_at: null
+    completed_at: null
+    verdict_path: task/verdict.json
+    all_pass: null

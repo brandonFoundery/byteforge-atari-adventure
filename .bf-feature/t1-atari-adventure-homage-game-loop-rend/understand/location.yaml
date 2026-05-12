@@ -1,0 +1,45 @@
+schema: location-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+in_scope:
+  - path: README.md
+    mutated: true
+    reason: Document exact install/run/test commands for the pygame ticket baseline.
+  - path: adventure.py
+    mutated: false
+    reason: Single-file game implementation containing window setup, render foundation, and main loop.
+  - path: tests/test_adventure.py
+    mutated: false
+    reason: Ticket-required tests for headless init, player coordinates, and ESC loop exit.
+  - path: tests/conftest.py
+    mutated: false
+    reason: Set SDL dummy drivers before pygame import in tests.
+  - path: requirements.txt
+    mutated: false
+    reason: Minimal pinned dependency list (`pygame`, `pytest`).
+planned_creates:
+  - path: adventure.py
+    reason: Create the pygame game loop + render foundation in a single file.
+  - path: tests/test_adventure.py
+    reason: Create pytest coverage matching the ticket acceptance criteria.
+  - path: tests/conftest.py
+    reason: Ensure deterministic headless pygame setup for CI and local test runs.
+  - path: requirements.txt
+    reason: Keep dependency installation deterministic for Foundry validation.
+entry_points:
+  - kind: cli
+    path: adventure.py
+    name: __main__
+  - kind: function
+    path: adventure.py
+    name: main
+  - kind: function
+    path: adventure.py
+    name: run_game_loop
+referenced_symbols:
+  - pygame.init
+  - pygame.display.set_mode
+  - pygame.draw.rect
+  - pygame.event.get
+  - pygame.time.Clock.tick
+  - pygame.quit
