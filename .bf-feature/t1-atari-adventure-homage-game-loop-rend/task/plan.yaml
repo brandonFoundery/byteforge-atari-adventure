@@ -1,0 +1,84 @@
+schema: task-plan-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+generated_at: '2026-05-12T02:39:55Z'
+batches:
+- batch_id: BAT-329BFC
+  component_id: CMP-aa1be2
+  name: GameInitializer
+  prod_files:
+  - adventure.py
+  test_files:
+  - tests/test_adventure.py
+  req_coverage:
+  - REQ-AADAC4
+  - REQ-AFFA38
+  depends_on: []
+  test_count: 2
+- batch_id: BAT-D83461
+  component_id: CMP-bb2c3d
+  name: GameRenderer
+  prod_files:
+  - adventure.py
+  test_files:
+  - tests/test_adventure.py
+  req_coverage:
+  - REQ-07C0B4
+  - REQ-82B4D1
+  - REQ-16D6CB
+  - REQ-05A20B
+  depends_on:
+  - BAT-329BFC
+  test_count: 4
+- batch_id: BAT-E77E3C
+  component_id: CMP-cc3d4e
+  name: GameLoop
+  prod_files:
+  - adventure.py
+  test_files:
+  - tests/test_adventure.py
+  req_coverage:
+  - REQ-AAF862
+  - REQ-3906FD
+  - REQ-264497
+  depends_on:
+  - BAT-329BFC
+  - BAT-D83461
+  test_count: 3
+- batch_id: BAT-A1361E
+  component_id: CMP-dd4e5f
+  name: TestEnvironment
+  prod_files:
+  - tests/conftest.py
+  - requirements.txt
+  test_files:
+  - tests/test_conftest.py
+  req_coverage:
+  - REQ-33C367
+  - REQ-3857A0
+  depends_on: []
+  test_count: 2
+- batch_id: BAT-E30E00
+  component_id: CMP-ee5f60
+  name: TestSuite
+  prod_files:
+  - tests/test_adventure.py
+  test_files:
+  - tests/test_test_adventure.py
+  req_coverage:
+  - REQ-874B54
+  - REQ-915D4B
+  - REQ-B95A16
+  depends_on:
+  - BAT-A1361E
+  test_count: 3
+- batch_id: BAT-0BF91A
+  component_id: CMP-ff6071
+  name: Documentation
+  prod_files:
+  - README.md
+  test_files: []
+  req_coverage:
+  - REQ-95C535
+  depends_on: []
+  test_count: 1

@@ -1,0 +1,40 @@
+
+$ [test_runner] (cwd=/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/fb4a5a61) python3 -m pytest .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/ -v --tb=short
+============================= test session starts ==============================
+platform darwin -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /Users/brandonshuey/.pyenv/versions/3.13.5/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/fb4a5a61
+plugins: anyio-4.10.0, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 14 items
+
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestBackgroundFillsInnerArea::test_background_fills_inner_area PASSED [  7%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestBackgroundFillsInnerArea::test_background_uses_single_color PASSED [ 14%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestFourWallsNoGaps::test_four_walls_no_gaps PASSED [ 21%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestFourWallsNoGaps::test_walls_cover_top_perimeter PASSED [ 28%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestFourWallsNoGaps::test_walls_cover_bottom_perimeter PASSED [ 35%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestFourWallsNoGaps::test_walls_cover_left_perimeter PASSED [ 42%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestFourWallsNoGaps::test_walls_cover_right_perimeter PASSED [ 50%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerAtDeterministicCoords::test_player_at_deterministic_coords PASSED [ 57%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerAtDeterministicCoords::test_player_start_coords_near_center PASSED [ 64%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerAtDeterministicCoords::test_player_coords_are_reproducible_across_calls PASSED [ 71%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerSizeMatchesConstant::test_player_size_matches_constant PASSED [ 78%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerSizeMatchesConstant::test_player_size_constant_is_positive PASSED [ 85%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerSizeMatchesConstant::test_player_is_a_square PASSED [ 92%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py::TestPlayerSizeMatchesConstant::test_player_fits_within_inner_area PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../../../../.pyenv/versions/3.13.5/lib/python3.13/site-packages/pygame/pkgdata.py:25
+  /Users/brandonshuey/.pyenv/versions/3.13.5/lib/python3.13/site-packages/pygame/pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import resource_stream, resource_exists
+
+../../../../../../.pyenv/versions/3.13.5/lib/python3.13/site-packages/pkg_resources/__init__.py:3146
+  /Users/brandonshuey/.pyenv/versions/3.13.5/lib/python3.13/site-packages/pkg_resources/__init__.py:3146: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 14 passed, 2 warnings in 0.14s ========================
+
+
+# exit: 0
