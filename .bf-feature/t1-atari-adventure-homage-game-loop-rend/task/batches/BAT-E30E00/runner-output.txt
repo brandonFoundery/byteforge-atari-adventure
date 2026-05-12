@@ -1,0 +1,32 @@
+
+$ [test_runner] (cwd=/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/fb4a5a61) python3 -m pytest .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/ -v --tb=short
+============================= test session starts ==============================
+platform darwin -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /Users/brandonshuey/.pyenv/versions/3.13.5/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/fb4a5a61
+plugins: anyio-4.10.0, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 6 items
+
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py::TestHeadlessInitNoErrors::test_headless_init_no_errors PASSED [ 16%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py::TestEscExitsGameLoop::test_esc_exits_game_loop PASSED [ 33%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py::TestEscExitsGameLoop::test_esc_exits_game_loop_does_not_call_sys_exit PASSED [ 50%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py::TestPlayerStartCoordsMatchConstants::test_player_start_coords_match_constants PASSED [ 66%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py::TestPlayerStartCoordsMatchConstants::test_player_start_coords_are_deterministic PASSED [ 83%]
+.bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py::TestPlayerStartCoordsMatchConstants::test_player_start_coords_within_logical_bounds PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../../../../.pyenv/versions/3.13.5/lib/python3.13/site-packages/pygame/pkgdata.py:25
+  /Users/brandonshuey/.pyenv/versions/3.13.5/lib/python3.13/site-packages/pygame/pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import resource_stream, resource_exists
+
+../../../../../../.pyenv/versions/3.13.5/lib/python3.13/site-packages/pkg_resources/__init__.py:3146
+  /Users/brandonshuey/.pyenv/versions/3.13.5/lib/python3.13/site-packages/pkg_resources/__init__.py:3146: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 6 passed, 2 warnings in 0.34s =========================
+
+
+# exit: 0

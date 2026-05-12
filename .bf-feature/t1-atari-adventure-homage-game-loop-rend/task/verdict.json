@@ -1,0 +1,47 @@
+{
+  "schema": "task-verdict-v1",
+  "feature_slug": "t1-atari-adventure-homage-game-loop-rend",
+  "feature_witness": "bdb1c1b58ad0547a",
+  "judged_at": "2026-05-12T02:40:09Z",
+  "batches": [
+    {
+      "batch_id": "BAT-329BFC",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-D83461",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-E77E3C",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-A1361E",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-E30E00",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-0BF91A",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    }
+  ],
+  "all_pass": true,
+  "blocking_failures": [],
+  "advisory_failures": []
+}

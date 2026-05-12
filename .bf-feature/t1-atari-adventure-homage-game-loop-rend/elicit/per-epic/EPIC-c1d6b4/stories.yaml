@@ -1,0 +1,36 @@
+schema: stories-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+stories:
+  - schema: story-v1
+    story_id: STORY-66cc46
+    epic_id: EPIC-c1d6b4
+    title: Headless test environment setup
+    in_scope_files:
+      - tests/conftest.py
+      - requirements.txt
+    acceptance_criteria:
+      - conftest.py creates SDL_VIDEODRIVER and SDL_AUDIODRIVER dummy env vars before pygame imports
+      - requirements.txt persists pinned exact versions of pygame and pytest
+
+  - schema: story-v1
+    story_id: STORY-84e39f
+    epic_id: EPIC-c1d6b4
+    title: Pytest coverage for game core
+    in_scope_files:
+      - tests/test_adventure.py
+    acceptance_criteria:
+      - Test suite returns zero failures for headless pygame initialization
+      - Test suite returns the expected deterministic player coordinates
+      - Test suite returns loop-terminated status after a synthetic ESC key event
+      - Test suite returns no regressions across initialization, center placement, and ESC exit when core logic changes
+
+  - schema: story-v1
+    story_id: STORY-7cdf75
+    epic_id: EPIC-c1d6b4
+    title: README documentation
+    in_scope_files:
+      - README.md
+    acceptance_criteria:
+      - README displays exact install, run, and test commands verbatim
+      - README creates a clear description of the Atari Adventure homage project

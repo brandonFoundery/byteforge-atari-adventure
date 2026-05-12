@@ -1,0 +1,33 @@
+schema: stories-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+stories:
+  - schema: story-v1
+    story_id: STORY-e14873
+    epic_id: EPIC-aa96f9
+    title: Window initialization
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - pygame.init() returns a tuple with zero failure count during module startup
+      - pygame.display.set_mode creates a window at 160x210 logical pixels scaled 3x to 4x
+
+  - schema: story-v1
+    story_id: STORY-f2c977
+    epic_id: EPIC-aa96f9
+    title: Room background and wall render
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - The renderer displays a single solid color background rectangle filling the inner room area
+      - The renderer displays four wall rectangles around the full perimeter with no passage gaps
+
+  - schema: story-v1
+    story_id: STORY-46eb4e
+    epic_id: EPIC-aa96f9
+    title: Player square render
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - The renderer displays a player square at deterministic coordinates near the room center
+      - The renderer creates the player square using configured size constants

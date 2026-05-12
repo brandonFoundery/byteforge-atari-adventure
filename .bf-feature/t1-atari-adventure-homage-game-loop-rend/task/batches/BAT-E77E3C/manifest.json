@@ -1,0 +1,17 @@
+{
+  "schema": "coder-manifest-v1",
+  "feature_slug": "t1-atari-adventure-homage-game-loop-rend",
+  "feature_witness": "bdb1c1b58ad0547a",
+  "batch_id": "BAT-E77E3C",
+  "files_written": [
+    {"path": "adventure.py", "mtime": 1778553471.3905244, "sha256": "756e9d07f6e57857c95b23addb87b0084f99e0b7e3149949e994018ef5a4ecb4"}
+  ],
+  "verification_commands": [
+    {
+      "cmd": "python3 -m pytest .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E77E3C/tests/ -v --tb=short",
+      "cwd": "/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/fb4a5a61",
+      "kind": "test_runner"
+    }
+  ],
+  "expected_evidence": []
+}

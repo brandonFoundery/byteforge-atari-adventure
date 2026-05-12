@@ -1,0 +1,12 @@
+schema: blast-radius-v1
+feature_slug: t1-atari-adventure-homage-game-loop-rend
+feature_witness: bdb1c1b58ad0547a
+generated_at: "2026-05-12T00:00:00Z"
+triptych_status: unavailable
+queries:
+  - file: README.md
+    referenced_by: []
+    references: []
+    triptych_evidence:
+      note: Triptych index unavailable in this workspace; no symbol graph returned.
+missing_from_scope: []
