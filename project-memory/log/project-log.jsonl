@@ -22,3 +22,5 @@
 {"type": "complete", "skill": "bf:test-v4", "session_id": "2fced476-2da9-428d-8a73-e16671106b02", "timestamp": "2026-05-13T22:35:22.422926+00:00", "duration_seconds": 138, "run_id": "20260513-223304"}
 {"type": "start", "skill": "bf:test-v4", "session_id": "1d2d6819-7ae7-4efd-afd9-ea87be1508b8", "timestamp": "2026-05-13T22:43:21.382643+00:00", "prompt_summary": "--ticket-id c847ce28-daf2-4b0e-6c13-08deb0efcb30 T3 — Multi-room world + scre...", "run_id": "20260513-224321"}
 {"type": "complete", "skill": "bf:test-v4", "session_id": "1d2d6819-7ae7-4efd-afd9-ea87be1508b8", "timestamp": "2026-05-13T22:46:16.767178+00:00", "duration_seconds": 175, "run_id": "20260513-224321"}
+{"type": "start", "skill": "bf:test-v4", "session_id": "96738b02-0e97-489f-8c30-2e8b78009b3c", "timestamp": "2026-05-13T22:51:38.177833+00:00", "prompt_summary": "--ticket-id c847ce28-daf2-4b0e-6c13-08deb0efcb30 T3 — Multi-room world + scre...", "run_id": "20260513-225138"}
+{"type": "complete", "skill": "bf:test-v4", "session_id": "96738b02-0e97-489f-8c30-2e8b78009b3c", "timestamp": "2026-05-13T22:53:23.375225+00:00", "duration_seconds": 105, "run_id": "20260513-225138"}
