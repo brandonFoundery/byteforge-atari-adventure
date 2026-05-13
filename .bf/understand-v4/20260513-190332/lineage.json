@@ -1,0 +1,20 @@
+{
+  "schema": "pipeline-lineage-v1",
+  "slice_id": null,
+  "chain": {
+    "discovery": {
+      "run_root": null,
+      "slice_id": null,
+      "packet": null
+    },
+    "understand": {
+      "run_id": "20260513-190332",
+      "run_root": ".bf/understand-v4/20260513-190332",
+      "diamond_root": ".bf/understand-v4/20260513-190332/diamond",
+      "score": 90
+    },
+    "elicit": null,
+    "design": null,
+    "task": null
+  }
+}

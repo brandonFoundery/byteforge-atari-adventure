@@ -1,0 +1,5 @@
+run_id: 20260513-190332
+mode: request-text
+ticket_id: 901b7299-81f1-4995-6c14-08deb0efcb30
+input: |
+  T4 — Items: pickup, carry-one, drop (chalice + key + sword, touch-to-pickup, drop on keypress)
