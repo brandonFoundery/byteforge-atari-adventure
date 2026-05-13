@@ -1,0 +1,18 @@
+{
+  "gate": "requirements-trace",
+  "status": "PASS",
+  "requirements_trace": ".bf/elicit-v4/20260513-102248/final/requirements-trace.md",
+  "coverage_pct": 100,
+  "coverage": {
+    "covered": 63,
+    "total": 63
+  },
+  "missing": [],
+  "evidence": [
+    "tests/test_rooms.py",
+    "tests/test_movement.py",
+    "tests/e2e/adversarial/test_rooms_adversarial.py",
+    "adventure.py"
+  ],
+  "note": "All requirement families REQ-001..REQ-063 have implementation and passing tests in this run."
+}
