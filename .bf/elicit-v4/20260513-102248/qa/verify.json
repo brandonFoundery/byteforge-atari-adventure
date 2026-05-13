@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "coverage": {
+    "success_criteria_covered": 10,
+    "total_success_criteria": 10
+  },
+  "epics_checked": 3,
+  "stories_checked": 12,
+  "issues": [],
+  "notes": "All 3 epics (EPIC-001 room model+registry, EPIC-002 room-aware rendering, EPIC-003 edge transitions) map to teachback success criteria. All 12 referenced stories exist on disk (STORY-001-1..3, STORY-002-1..3, STORY-003-1..6). Every story contains a title, user-story sentence, and >=2 acceptance criteria with REQ IDs. REQ ID ranges verified non-overlapping: EPIC-001 = REQ-001..020 (STORY-001-1: 001-008, STORY-001-2: 009-014, STORY-001-3: 015-020); EPIC-002 = REQ-021..030 (STORY-002-1: 021-024, STORY-002-2: 025-027, STORY-002-3: 028-030); EPIC-003 = REQ-031..063 (STORY-003-1: 031-036, STORY-003-2: 037-042, STORY-003-3: 043-047, STORY-003-4: 048-052, STORY-003-5: 053-058, STORY-003-6: 059-063). Location boundaries respected: all production changes scoped to adventure.py; test changes scoped to tests/test_rooms.py (new), tests/test_movement.py (reconcile per STORY-003-4), and tests/e2e/adversarial/test_rooms_adversarial.py (explicitly listed in location.md as in-scope new file). All 10 teachback success criteria are traceable to at least one REQ or epic-level AC. Mocks present: MOCK-EPIC-002.md, MOCK-003-transition.md."
+}
