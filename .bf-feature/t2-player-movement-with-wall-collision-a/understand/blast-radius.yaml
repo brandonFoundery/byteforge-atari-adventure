@@ -1,0 +1,101 @@
+schema: blast-radius-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+generated_at: "2026-05-13T00:00:00Z"
+
+triptych_status: partial
+# Triptych workspace requires enrollment (no .byteforge/config.json present);
+# get_related_symbols graph-edge traversal was unavailable. find_references
+# (ripgrep-backed) and get_change_impact (git-diff-backed) were both available
+# and produced results. Architecture-level edge queries returned no graph nodes
+# because the index has never been built for this repo. All reference data below
+# is sourced from find_references ripgrep queries and direct filesystem reads.
+
+queries:
+  - file: adventure.py
+    mutated: true
+    referenced_by:
+      - tests/test_adventure.py
+      - tests/test_movement.py
+      - tests/e2e/adversarial/test_adventure_adversarial.py
+      - .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py
+      - .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py
+      - .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E77E3C/tests/test_game_loop.py
+    references:
+      - pygame (external library — K_RIGHT, K_LEFT, K_UP, K_DOWN, key.get_pressed,
+          draw.rect, Surface, Rect, time.Clock, event.get, display.flip,
+          display.set_mode, init, quit)
+    triptych_evidence:
+      method: find_references (ripgrep)
+      symbols_queried:
+        - move_player    # 12 occurrences across 2 files (adventure.py + tests/test_movement.py)
+        - PLAYER_SPEED   # 13 occurrences across 2 files (adventure.py + tests/test_movement.py)
+        - _X_MIN         # 2 occurrences, both in adventure.py only (internal-only symbol)
+        - run_game_loop  # 30+ occurrences; callers: main() in adventure.py,
+                         #   tests/test_adventure.py, tests/e2e/adversarial/test_adventure_adversarial.py,
+                         #   .bf-feature/t1-*/BAT-E30E00 and BAT-E77E3C batch tests
+        - import adventure  # 11 total; active callers: tests/test_adventure.py,
+                            #   tests/test_movement.py, tests/e2e/adversarial/test_adventure_adversarial.py;
+                            #   historical: .bf-feature/t1-* batch snapshots (not pytest-collected)
+      graph_nodes_returned: 0
+      note: |
+        Triptych enrollment required before graph-edge queries (get_related_symbols,
+        get_change_impact symbol expansion) can return results. The ripgrep-backed
+        find_references path was fully functional and produced complete reference
+        data for this single-module Python project.
+
+  - file: tests/test_movement.py
+    mutated: true
+    referenced_by: []
+    references:
+      - adventure (import adventure — directly couples to PLAYER_SPEED, PLAYER_X,
+          PLAYER_Y, WALL_THICKNESS, LOGICAL_WIDTH, LOGICAL_HEIGHT, PLAYER_SIZE,
+          move_player, _X_MIN implicitly via WALL_THICKNESS constant re-derivation)
+      - pygame (K_RIGHT, K_LEFT, K_UP, K_DOWN)
+    triptych_evidence:
+      method: find_references (ripgrep)
+      note: |
+        test_movement.py is a leaf — nothing imports or calls it. Its only
+        outgoing dependency is adventure.py, which is already in_scope/mutated.
+        No additional scope entries implied.
+
+missing_from_scope:
+  - path: tests/e2e/adversarial/test_adventure_adversarial.py
+    why: |
+      Directly imports adventure and calls adventure.run_game_loop (the function
+      wired to move_player in T2), adventure.draw_room, adventure.draw_player,
+      adventure.initialize_pygame, adventure.create_window, and reads
+      adventure.LOGICAL_WIDTH, LOGICAL_HEIGHT, WALL_THICKNESS, PLAYER_SIZE,
+      PLAYER_X, PLAYER_Y, PLAYER_COLOR, ROOM_COLOR, WALL_COLOR, WINDOW_SCALE,
+      TARGET_FPS. Any change to move_player signature, PLAYER_SPEED semantics,
+      or clamp-boundary constants (_X_MIN/_X_MAX/_Y_MIN/_Y_MAX) affects
+      TestEdgeCases.test_player_starts_inside_walls_not_overlapping_them and
+      TestGameLoopLogic tests that exercise run_game_loop (which calls move_player
+      internally). The file is noted in location.yaml boundaries.out_of_scope_modules
+      as "regression only, not authored under T2" but is NOT listed in in_scope,
+      making it a coverage gap for the blast-radius audit.
+    severity: high
+
+  # The following .bf-feature/t1-* batch test files reference adventure symbols
+  # but are historical workflow snapshots stored outside the active pytest
+  # collection root. They are never executed by pytest from the project root and
+  # carry no production regression risk. Included here for completeness.
+  - path: .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E77E3C/tests/test_game_loop.py
+    why: |
+      Imports adventure and calls adventure.run_game_loop repeatedly. Historical
+      T1 batch snapshot — not collected by pytest (outside tests/ root), not
+      part of the active test suite. Signature drift in run_game_loop would
+      break these files but they are never executed in CI.
+    severity: low
+
+  - path: .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py
+    why: |
+      Imports adventure and invokes adventure.run_game_loop inside test methods.
+      Historical T1 batch snapshot — same rationale as BAT-E77E3C above.
+    severity: low
+
+  - path: .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py
+    why: |
+      Imports adventure (conditional import inside test body). Historical T1
+      batch snapshot — same rationale as above. Not in active pytest collection.
+    severity: low

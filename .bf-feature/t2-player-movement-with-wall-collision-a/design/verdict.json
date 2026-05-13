@@ -1,0 +1,65 @@
+{
+  "schema": "design-verdict-v1",
+  "feature_slug": "t2-player-movement-with-wall-collision-a",
+  "feature_witness": "b6731a13a9b00140",
+  "judged_at": "2026-05-13T13:10:42Z",
+  "all_pass": true,
+  "blocking_failures": [],
+  "advisory_failures": [],
+  "rules": {
+    "D_RULE_1": {
+      "name": "Interfaces compile",
+      "pass": true,
+      "status": "pass",
+      "evidence": "dotnet build returned 0 (3857 bytes)"
+    },
+    "D_RULE_2": {
+      "name": "Schemas validate",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 3 schemas validate against draft-2020-12"
+    },
+    "D_RULE_3": {
+      "name": "Migrations apply",
+      "pass": true,
+      "status": "warn",
+      "evidence": "no .cypher migrations extracted from design prose"
+    },
+    "D_RULE_4": {
+      "name": "Acceptance tests compile and fail",
+      "pass": true,
+      "status": "pass",
+      "evidence": "compiled and 28 tests failed (0 passed) as required"
+    },
+    "D_RULE_5": {
+      "name": "REQ coverage complete",
+      "pass": true,
+      "status": "warn",
+      "evidence": "no matching elicit-v4 run found for t2-player-movement-with-wall-collision-a"
+    },
+    "D_RULE_6": {
+      "name": "No cross-run drift",
+      "pass": true,
+      "status": "pass",
+      "evidence": "single-run mode \u2014 cross-run rule N/A"
+    },
+    "D_RULE_7": {
+      "name": "No unverified claims",
+      "pass": true,
+      "status": "warn",
+      "evidence": "no prose/rationale.md to scan (Phase 0 doesn't extract one)"
+    },
+    "D_RULE_8": {
+      "name": "interface\u2192REQ trace",
+      "pass": true,
+      "status": "pass",
+      "evidence": "3 interfaces all traced to 28 REQ-IDs"
+    },
+    "D_RULE_9": {
+      "name": "no fictitious files",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all component files exist or are in planned_creates"
+    }
+  }
+}

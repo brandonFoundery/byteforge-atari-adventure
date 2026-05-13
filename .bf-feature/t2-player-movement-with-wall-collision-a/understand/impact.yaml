@@ -1,0 +1,105 @@
+schema: impact-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+
+blast_radius:
+  - tests/e2e/adversarial/test_adventure_adversarial.py
+  - tests/conftest.py
+
+risks:
+  - file: adventure.py
+    kind: behavior
+    severity: high
+    description: |
+      move_player() applies each axis independently and clamps after summing.
+      Pressing K_LEFT and K_RIGHT in the same frame nets zero motion (likewise
+      K_UP+K_DOWN). This is functionally fine for an Atari homage but is an
+      undocumented behavior — if a story or test asserts "left key always moves
+      left" without considering simultaneous opposite keys, it will diverge from
+      this implementation.
+    mitigation: |
+      Cover the simultaneous-opposite-keys case explicitly in
+      tests/test_movement.py (e.g. test that K_LEFT+K_RIGHT held together
+      produces zero net x-delta). Document the resolution rule in the
+      move_player docstring or a comment.
+  - file: adventure.py
+    kind: regression
+    severity: high
+    description: |
+      run_game_loop now calls pygame.key.get_pressed() every frame. The T1
+      regression test test_main_loop_exits_on_escape_event in
+      tests/test_adventure.py drives the loop with a fake event_getter and
+      relies on pygame.key.get_pressed() returning a usable keymap after
+      pygame.init(). If pygame is not initialized (or has been quit) when the
+      loop runs, get_pressed() raises pygame.error and the ESC-exit regression
+      breaks.
+    mitigation: |
+      Confirm tests/conftest.py keeps SDL_VIDEODRIVER=dummy and that every
+      run_game_loop test path calls adventure.initialize_pygame() before
+      entering the loop. Re-run tests/test_adventure.py::test_main_loop_exits_on_escape_event
+      as part of the verification plan to catch breakage.
+  - file: adventure.py
+    kind: boundary
+    severity: medium
+    description: |
+      Wall clamp bounds (_X_MIN, _X_MAX, _Y_MIN, _Y_MAX) are derived from
+      WALL_THICKNESS, LOGICAL_WIDTH/HEIGHT, and PLAYER_SIZE at import time.
+      Any future change to those T1-owned constants silently shifts the
+      playable region. Conversely, the clamp is module-private (underscore
+      prefix), so external callers (tests, future modules) cannot detect a
+      drift programmatically without re-deriving the math.
+    mitigation: |
+      Keep the wall-clamp boundary tests in tests/test_movement.py
+      parameterized against the live adventure.* constants (not hard-coded
+      numbers) so the regression catches any T1 constant changes. Verify
+      with `python -m pytest tests/test_movement.py -v`.
+  - file: adventure.py
+    kind: performance
+    severity: low
+    description: |
+      move_player is called once per frame at TARGET_FPS=30. The function is
+      branch-light and pure-Python, so no realistic performance concern, but
+      it is on the hot path of the render loop — any future addition (e.g.
+      logging, collision checks, sprite updates) inside move_player would
+      directly affect frame pacing.
+    mitigation: |
+      Keep move_player free of I/O, allocation, and logging. If collision
+      surface expands beyond perimeter clamping, factor the heavy work into
+      a separate function and keep move_player as the input->position primitive.
+  - file: tests/test_movement.py
+    kind: coverage
+    severity: medium
+    description: |
+      Dedicated T2 test module. If any of: PLAYER_SPEED constant, the four
+      directional axes, the four wall clamps, or the no-keys-no-motion
+      invariant is removed or weakened, the regression net for T2 is the
+      only thing that will catch it. A flaky or accidentally skipped test
+      here gives a false-green for the entire feature.
+    mitigation: |
+      Run `python -m pytest tests/test_movement.py -v` and confirm exactly
+      10 tests collected, 10 passed, 0 skipped, 0 xfail. Add a collection
+      assertion to CI if available. Forbid `@pytest.mark.skip` in this file
+      via grep gate.
+
+verification_plan:
+  - step: Confirm pytest discovers and passes the T2 test module
+    command: python -m pytest tests/test_movement.py -v
+    expect: 10 tests collected, 10 passed, 0 skipped
+  - step: Confirm T1 regression tests still pass alongside T2
+    command: python -m pytest tests/test_adventure.py -v
+    expect: 3 tests collected, 3 passed (window init, player position, ESC exit)
+  - step: Run the full unit suite to catch cross-test interaction
+    command: python -m pytest tests/ -v --ignore=tests/e2e
+    expect: All non-e2e tests pass; no skips, no xfails
+  - step: Static import sanity — verify adventure module loads without side effects
+    command: python -c "import adventure; print(adventure.PLAYER_SPEED, adventure._X_MIN, adventure._X_MAX, adventure._Y_MIN, adventure._Y_MAX)"
+    expect: Prints PLAYER_SPEED=2 and four integer clamp bounds derived from LOGICAL_WIDTH/HEIGHT, WALL_THICKNESS, PLAYER_SIZE
+  - step: Headless smoke — boot the game loop with a fake event_getter that quits immediately
+    command: 'SDL_VIDEODRIVER=dummy python -c "import pygame, adventure; adventure.initialize_pygame(); s=adventure.create_window(1); adventure.run_game_loop(s, event_getter=lambda: [pygame.event.Event(pygame.QUIT)])"'
+    expect: Loop exits cleanly with no traceback; confirms pygame.key.get_pressed() is callable inside the loop
+  - step: Adversarial E2E regression (blast-radius file)
+    command: python -m pytest tests/e2e/adversarial/test_adventure_adversarial.py -v
+    expect: Pre-existing adversarial suite still passes; no T2-induced regression
+  - step: Lint/format gate (if configured) on mutated files
+    command: python -m py_compile adventure.py tests/test_movement.py
+    expect: Both files compile to bytecode with no SyntaxError

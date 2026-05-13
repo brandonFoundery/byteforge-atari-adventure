@@ -1,0 +1,27 @@
+schema: stories-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+
+stories:
+  - schema: story-v1
+    story_id: STORY-576739
+    epic_id: EPIC-a7d44f
+    title: Unit tests cover all movement directions and wall clamps
+    in_scope_files:
+      - tests/test_movement.py
+    acceptance_criteria:
+      - "pytest returns exactly 10 collected tests from tests/test_movement.py"
+      - "running tests/test_movement.py returns 10 passed, 0 failed, 0 skipped, 0 xfailed"
+      - "test_movement.py emits a passing result for each of the four directional axes (right left up down)"
+      - "test_movement.py emits a passing result for each of the four wall clamp boundaries"
+
+  - schema: story-v1
+    story_id: STORY-b80dc0
+    epic_id: EPIC-a7d44f
+    title: T1 regression suite continues to pass alongside T2 tests
+    in_scope_files:
+      - tests/test_adventure.py
+      - tests/conftest.py
+    acceptance_criteria:
+      - "tests/test_adventure.py returns all tests passing after T2 integration"
+      - "tests/conftest.py emits SDL_VIDEODRIVER=dummy environment configuration so headless tests pass"

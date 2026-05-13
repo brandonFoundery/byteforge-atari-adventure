@@ -1,0 +1,54 @@
+{
+  "schema": "task-batch-verdict-v1",
+  "feature_slug": "t2-player-movement-with-wall-collision-a",
+  "feature_witness": "b6731a13a9b00140",
+  "batch_id": "BAT-D59657",
+  "judged_at": "2026-05-13T13:25:05Z",
+  "all_pass": true,
+  "blocking_failures": [],
+  "advisory_failures": [],
+  "rules": {
+    "T_RULE_1": {
+      "name": "required artifacts present",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all present"
+    },
+    "T_RULE_2": {
+      "name": "tree-sha frozen",
+      "pass": true,
+      "status": "pass",
+      "evidence": "sha c80abe876e47 unchanged through GREEN"
+    },
+    "T_RULE_3": {
+      "name": "verification commands exit 0",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 1 commands exit 0"
+    },
+    "T_RULE_4": {
+      "name": "test_runner present",
+      "pass": true,
+      "status": "pass",
+      "evidence": "at least one kind:test_runner found"
+    },
+    "T_RULE_5": {
+      "name": "expected evidence exists",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 0 evidence paths present"
+    },
+    "T_RULE_6": {
+      "name": "tests reference witness",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 1 test files contain witness"
+    },
+    "T_RULE_7": {
+      "name": "writes within scope",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 3 writes within declared scope"
+    }
+  }
+}

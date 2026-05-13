@@ -1,0 +1,28 @@
+schema: requirements-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+
+requirements:
+  - req_id: REQ-900635
+    source_story_id: STORY-576739
+    assertion: "pytest collects exactly 10 tests from tests/test_movement.py"
+
+  - req_id: REQ-14E1B4
+    source_story_id: STORY-576739
+    assertion: "all 10 tests in tests/test_movement.py pass with zero skips and zero xfails"
+
+  - req_id: REQ-BE9F8B
+    source_story_id: STORY-576739
+    assertion: "test_movement.py verifies each of the four directional axes (right left up down)"
+
+  - req_id: REQ-4D064A
+    source_story_id: STORY-576739
+    assertion: "test_movement.py verifies each of the four wall clamp boundaries"
+
+  - req_id: REQ-7CE888
+    source_story_id: STORY-b80dc0
+    assertion: "pytest collects and passes all tests in tests/test_adventure.py after T2 integration"
+
+  - req_id: REQ-E37D72
+    source_story_id: STORY-b80dc0
+    assertion: "tests/conftest.py sets SDL_VIDEODRIVER=dummy so headless tests pass"

@@ -1,0 +1,47 @@
+{
+  "run_id": "20260513-t2",
+  "design_root": ".bf/design-v4/20260513-t2",
+  "description": "T2 — Player movement with wall collision (arrow-key input, 4-direction)",
+  "work_item_id": "980a9538-3faf-4b4d-e0f2-08deafc8cec8",
+  "execution_id": "e634c811-a1ff-439f-9c25-189e96d9ee7d",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "provider": "codex",
+  "complexity": "Large",
+  "design_source": {
+    "status": "fallback",
+    "reason": "No .bf/design-v4/20260513-t2 artifacts exist in this repository; using ticket title/description as the implementation spec."
+  },
+  "batches": [
+    {
+      "id": "C01",
+      "name": "player-movement",
+      "prod_files": [
+        "adventure.py"
+      ],
+      "test_files": [
+        "tests/test_movement.py"
+      ],
+      "test_count": 10,
+      "requirements": [
+        "Arrow-key input supports 4-direction movement",
+        "Movement is clamped to room interior and cannot pass through perimeter walls"
+      ],
+      "spec": {
+        "constants": [
+          "PLAYER_SPEED"
+        ],
+        "functions": [
+          "move_player(x, y, keys_pressed) -> tuple[int, int]"
+        ],
+        "boundaries": {
+          "min_x": "WALL_THICKNESS",
+          "max_x": "LOGICAL_WIDTH - WALL_THICKNESS - PLAYER_SIZE",
+          "min_y": "WALL_THICKNESS",
+          "max_y": "LOGICAL_HEIGHT - WALL_THICKNESS - PLAYER_SIZE"
+        },
+        "game_loop": "run_game_loop must call pygame.key.get_pressed() and move_player each frame"
+      }
+    }
+  ],
+  "execution_mode": "inline-failover"
+}

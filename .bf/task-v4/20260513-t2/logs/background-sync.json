@@ -1,0 +1,5 @@
+{
+  "stage": "background-sync",
+  "status": "skipped",
+  "reason": "No project-memory/features/features.json or tracker progress artifact found in this repository"
+}

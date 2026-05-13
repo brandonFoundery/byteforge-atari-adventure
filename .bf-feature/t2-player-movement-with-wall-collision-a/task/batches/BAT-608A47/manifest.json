@@ -1,0 +1,21 @@
+{
+  "schema": "coder-manifest-v1",
+  "feature_slug": "t2-player-movement-with-wall-collision-a",
+  "feature_witness": "b6731a13a9b00140",
+  "batch_id": "BAT-608A47",
+  "files_written": [
+    {
+      "path": "adventure.py",
+      "mtime": "2026-05-13T13:21:31.508038+00:00",
+      "sha256": "227f5d0f6aa47ce1014b67980c6228dbb86193a48f52a28f72c079c1c7c69364"
+    }
+  ],
+  "verification_commands": [
+    {
+      "cmd": "python -m pytest tests/test_movement.py tests/test_adventure.py -v",
+      "cwd": "/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/980a9538",
+      "kind": "test_runner"
+    }
+  ],
+  "expected_evidence": []
+}

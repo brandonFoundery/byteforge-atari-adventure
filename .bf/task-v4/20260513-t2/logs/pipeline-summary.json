@@ -1,0 +1,29 @@
+{
+  "run_id": "20260513-t2",
+  "status": "PASS",
+  "batches": [
+    {
+      "id": "C01",
+      "name": "player-movement",
+      "tests_written": 10,
+      "files_implemented": [
+        "adventure.py"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "verification": {
+    "targeted": {
+      "command": "python -m pytest tests/test_movement.py -v",
+      "result": "PASS"
+    },
+    "final": {
+      "command": "python -m pytest -q",
+      "result": "PASS"
+    }
+  },
+  "requirements_trace": {
+    "status": "skipped"
+  },
+  "report": ".bf/task-v4/20260513-t2/completion-report.md"
+}

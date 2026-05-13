@@ -1,0 +1,39 @@
+
+$ [test_runner] (cwd=/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/980a9538) python -m pytest tests/test_movement.py tests/test_adventure.py -v
+============================= test session starts ==============================
+platform darwin -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /Users/brandonshuey/.pyenv/versions/3.13.5/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/980a9538
+plugins: anyio-4.10.0, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 13 items
+
+tests/test_movement.py::test_player_speed_constant_defined PASSED        [  7%]
+tests/test_movement.py::test_move_right_increases_x PASSED               [ 15%]
+tests/test_movement.py::test_move_left_decreases_x PASSED                [ 23%]
+tests/test_movement.py::test_move_up_decreases_y PASSED                  [ 30%]
+tests/test_movement.py::test_move_down_increases_y PASSED                [ 38%]
+tests/test_movement.py::test_wall_clamp_left PASSED                      [ 46%]
+tests/test_movement.py::test_wall_clamp_right PASSED                     [ 53%]
+tests/test_movement.py::test_wall_clamp_top PASSED                       [ 61%]
+tests/test_movement.py::test_wall_clamp_bottom PASSED                    [ 69%]
+tests/test_movement.py::test_no_keys_pressed_position_unchanged PASSED   [ 76%]
+tests/test_adventure.py::test_window_initializes_in_headless_mode PASSED [ 84%]
+tests/test_adventure.py::test_player_position_is_expected PASSED         [ 92%]
+tests/test_adventure.py::test_main_loop_exits_on_escape_event PASSED     [100%]
+
+=============================== warnings summary ===============================
+../../../../../../.pyenv/versions/3.13.5/lib/python3.13/site-packages/pygame/pkgdata.py:25
+  /Users/brandonshuey/.pyenv/versions/3.13.5/lib/python3.13/site-packages/pygame/pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import resource_stream, resource_exists
+
+../../../../../../.pyenv/versions/3.13.5/lib/python3.13/site-packages/pkg_resources/__init__.py:3146
+  /Users/brandonshuey/.pyenv/versions/3.13.5/lib/python3.13/site-packages/pkg_resources/__init__.py:3146: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 13 passed, 2 warnings in 0.33s ========================
+
+
+# exit: 0

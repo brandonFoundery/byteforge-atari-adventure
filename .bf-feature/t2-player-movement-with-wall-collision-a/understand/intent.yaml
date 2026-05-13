@@ -1,0 +1,59 @@
+schema: intent-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+request_summary: >-
+  T2 — Implement player movement driven by arrow-key input with four-direction
+  travel (up, down, left, right) and wall collision so the player cannot pass
+  through walls. Builds on the existing game loop and render foundation from T1.
+assumptions:
+  - id: A1
+    text: Movement is restricted to four cardinal directions (up, down, left, right); diagonal motion is not required.
+    risk: safe
+    evidence: explicit in request ("4-direction")
+  - id: A2
+    text: Input source is the keyboard arrow keys (not WASD, gamepad, or touch).
+    risk: safe
+    evidence: explicit in request ("arrow-key input")
+  - id: A3
+    text: A "wall" is any solid map tile or obstacle that the player must not overlap or cross.
+    risk: risky
+    evidence: none — wall definition not specified in request
+  - id: A4
+    text: Collision is blocking (movement is denied into a wall) rather than damaging, bouncing, or sliding.
+    risk: risky
+    evidence: none — collision response not specified
+  - id: A5
+    text: Movement is grid/tile or continuous pixel-based consistent with the Atari Adventure homage established in T1.
+    risk: risky
+    evidence: T1 commit reference ("Atari Adventure homage")
+  - id: A6
+    text: Only one player entity is moved; no multi-player or AI movement is in scope for T2.
+    risk: safe
+    evidence: request says "Player movement" (singular)
+  - id: A7
+    text: Holding an arrow key produces continuous movement; releasing it stops movement.
+    risk: risky
+    evidence: none — input semantics not specified
+success_criteria:
+  - Pressing the up, down, left, or right arrow key changes the player position in that direction on screen on the next rendered frame.
+  - When the player is adjacent to a wall and an arrow key is pressed toward that wall, the player position does not change and the player does not overlap the wall.
+  - Releasing all arrow keys leaves the player stationary for at least one full second with no position change.
+  - Pressing two opposing arrow keys (e.g., left and right) does not move the player past a wall in either direction.
+  - An automated or scripted test verifies that attempting to move into a wall tile leaves the player coordinates unchanged.
+out_of_scope:
+  - Diagonal movement or eight-direction input
+  - WASD, gamepad, mouse, or touch input bindings
+  - Variable movement speed, acceleration, or inertia tuning beyond a single constant speed
+  - Combat, item pickup, doors, or interactions with non-wall objects
+  - Multi-player or AI-controlled entity movement
+  - Level design, new maps, or new wall layouts beyond what T1 provides
+  - Animation frames, sprite swapping, or facing-direction art changes
+  - Sound effects for movement or collision
+blocking_ambiguity:
+  - What constitutes a "wall" — any non-floor tile, an explicit wall layer, or a collision-flagged object?
+  - Should diagonal input (two arrow keys pressed simultaneously) be ignored, resolved to one axis, or move on both axes independently?
+  - Is movement tile-stepped (one tile per key press / per tick) or continuous (pixels per frame while held)?
+requirement_decisions:
+  - Define the canonical player movement speed (tiles/sec or pixels/frame).
+  - Decide simultaneous-key resolution policy (last-pressed wins, axis priority, or independent axes).
+  - Decide whether the player can be spawned inside a wall and, if so, how that is handled.
