@@ -1,0 +1,9 @@
+{
+  "team_name": "20260513-t2-pipeline",
+  "mode": "inline-equivalent",
+  "status": "configured",
+  "notes": [
+    "Executed sequential test-writer -> coder cycle directly in this CLI as failover agent.",
+    "No separate agent runtime state is available in this environment."
+  ]
+}

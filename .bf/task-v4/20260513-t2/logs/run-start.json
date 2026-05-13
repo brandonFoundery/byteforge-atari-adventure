@@ -1,0 +1,15 @@
+{
+  "run_id": "20260513-t2",
+  "started_at_utc": "2026-05-13T12:43:38Z",
+  "provider": "codex",
+  "complexity": "Large",
+  "title": "T2 — Player movement with wall collision (arrow-key input, 4-direction)",
+  "work_item_id": "980a9538-3faf-4b4d-e0f2-08deafc8cec8",
+  "execution_id": "e634c811-a1ff-439f-9c25-189e96d9ee7d",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "status": "in_progress",
+  "notes": [
+    "No AGENTS.md found in this repository/worktree.",
+    "Failover execution completed inline in this CLI environment."
+  ]
+}

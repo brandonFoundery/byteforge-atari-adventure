@@ -18,6 +18,26 @@ PLAYER_SIZE = 8
 PLAYER_X = (LOGICAL_WIDTH - PLAYER_SIZE) // 2
 PLAYER_Y = (LOGICAL_HEIGHT - PLAYER_SIZE) // 2
 
+PLAYER_SPEED = 2
+
+_X_MIN = WALL_THICKNESS
+_X_MAX = LOGICAL_WIDTH - WALL_THICKNESS - PLAYER_SIZE
+_Y_MIN = WALL_THICKNESS
+_Y_MAX = LOGICAL_HEIGHT - WALL_THICKNESS - PLAYER_SIZE
+
+
+def move_player(x: int, y: int, keys_pressed) -> tuple[int, int]:
+    """Apply arrow-key movement and clamp to room interior."""
+    if keys_pressed[pygame.K_RIGHT]:
+        x += PLAYER_SPEED
+    if keys_pressed[pygame.K_LEFT]:
+        x -= PLAYER_SPEED
+    if keys_pressed[pygame.K_DOWN]:
+        y += PLAYER_SPEED
+    if keys_pressed[pygame.K_UP]:
+        y -= PLAYER_SPEED
+    return max(_X_MIN, min(_X_MAX, x)), max(_Y_MIN, min(_Y_MAX, y))
+
 
 def initialize_pygame() -> tuple[int, int]:
     """Initialize pygame subsystems."""
@@ -62,6 +82,7 @@ def run_game_loop(
     clock = pygame.time.Clock()
     running = True
     logical_surface = pygame.Surface((LOGICAL_WIDTH, LOGICAL_HEIGHT))
+    px, py = PLAYER_X, PLAYER_Y
 
     while running:
         for event in event_getter():
@@ -70,8 +91,10 @@ def run_game_loop(
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 running = False
 
+        px, py = move_player(px, py, pygame.key.get_pressed())
+
         draw_room(logical_surface)
-        draw_player(logical_surface)
+        draw_player(logical_surface, px, py)
 
         if surface.get_size() == (LOGICAL_WIDTH, LOGICAL_HEIGHT):
             surface.blit(logical_surface, (0, 0))

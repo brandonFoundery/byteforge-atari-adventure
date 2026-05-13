@@ -1,0 +1,5 @@
+{
+  "gate": "requirements-trace",
+  "status": "skipped",
+  "reason": "No requirements-trace.md path available from plan/upstream artifacts for this run"
+}
