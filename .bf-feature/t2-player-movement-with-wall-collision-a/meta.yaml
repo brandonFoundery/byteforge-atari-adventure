@@ -1,0 +1,29 @@
+schema: bf-feature-meta-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+created_at: '2026-05-13T12:45:22Z'
+request_seed: T2 — Player movement with wall collision (arrow-key input, 4-direction)
+repo_head_sha: 969823a91d1574565b633d4569ed4d4af0dc4a38
+phase: understand_complete
+stages:
+  understand:
+    started_at: '2026-05-13T12:45:22Z'
+    completed_at: '2026-05-13T12:52:20Z'
+    verdict_path: understand/verdict.json
+    all_pass: false
+    advisory_failures_only: true
+  elicit:
+    started_at: null
+    completed_at: null
+    verdict_path: elicit/verdict.json
+    all_pass: null
+  design:
+    started_at: null
+    completed_at: null
+    verdict_path: design/verdict.json
+    all_pass: null
+  task:
+    started_at: null
+    completed_at: null
+    verdict_path: task/verdict.json
+    all_pass: null

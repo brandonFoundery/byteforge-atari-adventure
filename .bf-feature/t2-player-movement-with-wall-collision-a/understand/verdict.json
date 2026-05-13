@@ -1,0 +1,49 @@
+{
+  "schema": "understand-verdict-v1",
+  "feature_slug": "t2-player-movement-with-wall-collision-a",
+  "feature_witness": "b6731a13a9b00140",
+  "judged_at": "2026-05-13T12:52:20Z",
+  "all_pass": false,
+  "blocking_failures": [],
+  "advisory_failures": [
+    "U_RULE_6"
+  ],
+  "rules": {
+    "U_RULE_1": {
+      "name": "Artifacts and witness",
+      "pass": true,
+      "status": "pass",
+      "evidence": "intent/location/impact present, parsed, witnessed"
+    },
+    "U_RULE_2": {
+      "name": "in_scope paths real",
+      "pass": true,
+      "status": "pass",
+      "evidence": "4 in_scope paths verified"
+    },
+    "U_RULE_3": {
+      "name": "success_criteria quality",
+      "pass": true,
+      "status": "pass",
+      "evidence": "5 criteria pass quality checks"
+    },
+    "U_RULE_4": {
+      "name": "risks cover mutations",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 2 mutated paths covered by risks"
+    },
+    "U_RULE_5": {
+      "name": "teachback grounding",
+      "pass": true,
+      "status": "pass",
+      "evidence": "teachback references 4 distinct location paths"
+    },
+    "U_RULE_6": {
+      "name": "Triptych blast-radius coverage",
+      "pass": false,
+      "status": "fail",
+      "evidence": "Triptych identified 4 file(s) connected to in_scope but not in scope: tests/e2e/adversarial/test_adventure_adversarial.py (Directly imports adventure and calls adventure.run_game_loop (the function\nwired to move_player in T2), adventure.draw_room, adventure.draw_player,\nadventure.initialize_pygame, adventure.create_window, and reads\nadventure.LOGICAL_WIDTH, LOGICAL_HEIGHT, WALL_THICKNESS, PLAYER_SIZE,\nPLAYER_X, PLAYER_Y, PLAYER_COLOR, ROOM_COLOR, WALL_COLOR, WINDOW_SCALE,\nTARGET_FPS. Any change to move_player signature, PLAYER_SPEED semantics,\nor clamp-boundary constants (_X_MIN/_X_MAX/_Y_MIN/_Y_MAX) affects\nTestEdgeCases.test_player_starts_inside_walls_not_overlapping_them and\nTestGameLoopLogic tests that exercise run_game_loop (which calls move_player\ninternally). The file is noted in location.yaml boundaries.out_of_scope_modules\nas \"regression only, not authored under T2\" but is NOT listed in in_scope,\nmaking it a coverage gap for the blast-radius audit.\n); .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E77E3C/tests/test_game_loop.py (Imports adventure and calls adventure.run_game_loop repeatedly. Historical\nT1 batch snapshot \u2014 not collected by pytest (outside tests/ root), not\npart of the active test suite. Signature drift in run_game_loop would\nbreak these files but they are never executed in CI.\n); .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-E30E00/tests/test_test_suite.py (Imports adventure and invokes adventure.run_game_loop inside test methods.\nHistorical T1 batch snapshot \u2014 same rationale as BAT-E77E3C above.\n); .bf-feature/t1-atari-adventure-homage-game-loop-rend/task/batches/BAT-D83461/tests/test_game_renderer.py (Imports adventure (conditional import inside test body). Historical T1\nbatch snapshot \u2014 same rationale as above. Not in active pytest collection.\n)"
+    }
+  }
+}

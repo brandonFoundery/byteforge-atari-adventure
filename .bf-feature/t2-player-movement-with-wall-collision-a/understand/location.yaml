@@ -1,0 +1,124 @@
+schema: location-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+
+in_scope:
+  - path: adventure.py
+    mutated: true
+    reason: |
+      Main game module. Hosts the PLAYER_SPEED constant, the wall-clamp boundary
+      constants (_X_MIN, _X_MAX, _Y_MIN, _Y_MAX), the move_player(x, y, keys_pressed)
+      function implementing 4-direction arrow-key input, and the run_game_loop
+      integration that calls pygame.key.get_pressed() each frame and applies the
+      result via move_player before rendering.
+  - path: tests/test_movement.py
+    mutated: true
+    reason: |
+      Dedicated test module for T2 (C01 — player movement). Covers PLAYER_SPEED
+      constant, each of the 4 directional axes (right/left/up/down), the four
+      wall-clamp boundaries (left/right/top/bottom), and the no-keys-no-motion
+      invariant.
+  - path: tests/test_adventure.py
+    mutated: false
+    reason: |
+      Pre-existing T1 tests for window init, initial player position, and ESC
+      loop exit. Must continue to pass; T2 changes interact with run_game_loop
+      so this file is in the regression scope even though it is not modified.
+  - path: tests/conftest.py
+    mutated: false
+    reason: |
+      Test environment configuration (e.g. SDL_VIDEODRIVER=dummy for headless
+      pygame). T2 tests inherit this; behavior must remain compatible.
+
+planned_creates: []
+
+entry_points:
+  - kind: function
+    path: adventure.py
+    name: move_player
+  - kind: function
+    path: adventure.py
+    name: run_game_loop
+  - kind: constant
+    path: adventure.py
+    name: PLAYER_SPEED
+  - kind: constant
+    path: adventure.py
+    name: _X_MIN
+  - kind: constant
+    path: adventure.py
+    name: _X_MAX
+  - kind: constant
+    path: adventure.py
+    name: _Y_MIN
+  - kind: constant
+    path: adventure.py
+    name: _Y_MAX
+  - kind: test_module
+    path: tests/test_movement.py
+    name: test_movement
+
+referenced_symbols:
+  - adventure.move_player
+  - adventure.run_game_loop
+  - adventure.PLAYER_SPEED
+  - adventure.PLAYER_X
+  - adventure.PLAYER_Y
+  - adventure.PLAYER_SIZE
+  - adventure.WALL_THICKNESS
+  - adventure.LOGICAL_WIDTH
+  - adventure.LOGICAL_HEIGHT
+  - adventure._X_MIN
+  - adventure._X_MAX
+  - adventure._Y_MIN
+  - adventure._Y_MAX
+  - pygame.K_RIGHT
+  - pygame.K_LEFT
+  - pygame.K_UP
+  - pygame.K_DOWN
+  - pygame.key.get_pressed
+
+boundaries:
+  in_scope_modules:
+    - adventure (single-file game module)
+    - tests/test_movement.py (T2 unit tests)
+  out_of_scope_modules:
+    - tests/e2e/adversarial/test_adventure_adversarial.py (adversarial E2E — regression only, not authored under T2)
+    - .bf-feature/t1-* artifacts (prior feature workspace)
+    - .bf/** workflow state directories
+    - rendering color/size constants (ROOM_COLOR, WALL_COLOR, PLAYER_COLOR) — visual identity owned by T1
+    - room geometry / wall rendering (draw_room) — owned by T1
+    - window scaling / display surface management (create_window) — owned by T1
+
+discrepancies:
+  - requested: "arrow-key input handler"
+    found: "adventure.move_player(x, y, keys_pressed)"
+    note: |
+      Already implemented in working tree (commit 969823a). This understanding
+      pass is retrospective — the feature exists and is being grounded for the
+      Diamond audit trail rather than green-fielded.
+  - requested: "wall collision"
+    found: "max/min clamp against _X_MIN/_X_MAX/_Y_MIN/_Y_MAX inside move_player"
+    note: |
+      Implemented as boundary clamping (not swept collision). Walls are the
+      fixed perimeter rectangles drawn by draw_room; clamp bounds derive from
+      WALL_THICKNESS, LOGICAL_WIDTH/HEIGHT, and PLAYER_SIZE.
+
+evidence:
+  triptych:
+    note: |
+      Triptych MCP architecture-map tools were not invoked for this single-file
+      Python pygame project — repository is one source module (adventure.py)
+      plus a tests/ folder. Grounding was performed by direct filesystem
+      enumeration (Glob) and source read of adventure.py, tests/test_movement.py,
+      and tests/test_adventure.py. The Triptych playbook explicitly forbids
+      unfiltered get_architecture_map calls; with only one production module
+      a filtered call would add no information beyond what direct reads show.
+    queries_attempted: []
+  filesystem:
+    - Glob "**/*.py" -> adventure.py, tests/test_adventure.py, tests/test_movement.py, tests/conftest.py, tests/e2e/adversarial/test_adventure_adversarial.py
+    - Read adventure.py (121 lines) -> confirmed PLAYER_SPEED, move_player, _X_MIN/_X_MAX/_Y_MIN/_Y_MAX, run_game_loop wiring
+    - Read tests/test_movement.py (87 lines) -> confirmed 10 unit tests covering speed constant, 4 directions, 4 wall clamps, no-keys invariant
+    - Read tests/test_adventure.py (47 lines) -> confirmed T1 regression surface
+  git:
+    - 'commit 969823a "feat(byteforge-auto): [task-v4] T2 — Player movement with wall collision (arrow-key input, 4-direction)"'
