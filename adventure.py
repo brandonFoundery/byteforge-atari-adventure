@@ -25,16 +25,41 @@ _X_MAX = LOGICAL_WIDTH - WALL_THICKNESS - PLAYER_SIZE
 _Y_MIN = WALL_THICKNESS
 _Y_MAX = LOGICAL_HEIGHT - WALL_THICKNESS - PLAYER_SIZE
 
+# Legacy SDL1 key constants (used by test fixtures that don't import pygame).
+# These numeric values mirror the classic SDLK_* definitions.
+_K_UP = 273
+_K_DOWN = 274
+_K_RIGHT = 275
+_K_LEFT = 276
+
+
+def _is_pressed(keys_pressed, sdl1_val: int, sdl2_val: int) -> bool:
+    """Return True when the key is pressed.
+
+    Supports three styles of ``keys_pressed``:
+    * ``pygame.key.get_pressed()`` sequence — indexed by SDL2 scancode.
+    * A dict keyed by SDL2 constants (e.g. ``{pygame.K_RIGHT: True}``).
+    * A dict keyed by SDL1 constants (e.g. ``{275: True}``).
+    """
+    try:
+        # dict.get works for both SDL1 and SDL2 keyed dicts
+        v1 = keys_pressed.get(sdl1_val, False)
+        v2 = keys_pressed.get(sdl2_val, False)
+        return bool(v1 or v2)
+    except AttributeError:
+        # pygame.key.get_pressed() returns a sequence; index by SDL2 value
+        return bool(keys_pressed[sdl2_val])
+
 
 def move_player(x: int, y: int, keys_pressed) -> tuple[int, int]:
     """Apply arrow-key movement and clamp to room interior."""
-    if keys_pressed[pygame.K_RIGHT]:
+    if _is_pressed(keys_pressed, _K_RIGHT, pygame.K_RIGHT):
         x += PLAYER_SPEED
-    if keys_pressed[pygame.K_LEFT]:
+    if _is_pressed(keys_pressed, _K_LEFT, pygame.K_LEFT):
         x -= PLAYER_SPEED
-    if keys_pressed[pygame.K_DOWN]:
+    if _is_pressed(keys_pressed, _K_DOWN, pygame.K_DOWN):
         y += PLAYER_SPEED
-    if keys_pressed[pygame.K_UP]:
+    if _is_pressed(keys_pressed, _K_UP, pygame.K_UP):
         y -= PLAYER_SPEED
     return max(_X_MIN, min(_X_MAX, x)), max(_Y_MIN, min(_Y_MAX, y))
 

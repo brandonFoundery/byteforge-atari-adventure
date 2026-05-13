@@ -1,0 +1,29 @@
+{
+  "schema": "task-verdict-v1",
+  "feature_slug": "t2-player-movement-with-wall-collision-a",
+  "feature_witness": "b6731a13a9b00140",
+  "judged_at": "2026-05-13T13:25:08Z",
+  "batches": [
+    {
+      "batch_id": "BAT-45C243",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-608A47",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    },
+    {
+      "batch_id": "BAT-D59657",
+      "all_pass": true,
+      "blocking_failures": [],
+      "advisory_failures": []
+    }
+  ],
+  "all_pass": true,
+  "blocking_failures": [],
+  "advisory_failures": []
+}

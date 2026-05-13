@@ -1,0 +1,70 @@
+schema: task-plan-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+generated_at: '2026-05-13T13:12:30Z'
+batches:
+- batch_id: BAT-45C243
+  component_id: CMP-a1b2c3
+  name: PlayerMovementCore
+  prod_files:
+  - adventure.py
+  test_files:
+  - tests/test_adventure.py
+  req_coverage:
+  - REQ-077E89
+  - REQ-61A105
+  - REQ-9463A3
+  - REQ-7B8D30
+  - REQ-77D5D3
+  - REQ-D70100
+  - REQ-68475D
+  - REQ-995830
+  - REQ-A617E0
+  - REQ-DEEA15
+  depends_on: []
+  test_count: 10
+- batch_id: BAT-608A47
+  component_id: CMP-d4e5f6
+  name: WallBoundaryConfig
+  prod_files:
+  - adventure.py
+  test_files:
+  - tests/test_adventure.py
+  req_coverage:
+  - REQ-12A97B
+  - REQ-14DD79
+  - REQ-E75BF0
+  - REQ-F869F1
+  - REQ-AB8DAB
+  - REQ-D6D25F
+  - REQ-6C4582
+  - REQ-EFF78E
+  - REQ-201AD6
+  - REQ-398CFE
+  depends_on:
+  - BAT-45C243
+  test_count: 10
+- batch_id: BAT-D59657
+  component_id: CMP-789abc
+  name: MovementTestSuite
+  prod_files:
+  - tests/test_movement.py
+  - tests/test_adventure.py
+  - tests/conftest.py
+  test_files:
+  - tests/test_test_movement.py
+  - tests/test_test_adventure.py
+  - tests/test_conftest.py
+  req_coverage:
+  - REQ-14E1B4
+  - REQ-900635
+  - REQ-4D064A
+  - REQ-BE9F8B
+  - REQ-7CE888
+  - REQ-E37D72
+  - REQ-146585
+  - REQ-ADA63A
+  depends_on:
+  - BAT-45C243
+  - BAT-608A47
+  test_count: 8
