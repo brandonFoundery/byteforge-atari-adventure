@@ -1,0 +1,28 @@
+{
+  "component_id": "C03",
+  "name": "RoomAwareRendering",
+  "status": "designed",
+  "key_decisions": [
+    "draw_room(surface, room) hard signature change; sole caller is run_game_loop",
+    "surface.fill(room.bg_color) called unconditionally; walls drawn per-edge only when neighbors[dir] is None",
+    "current_room is a function-local in run_game_loop; never module-global",
+    "C03 leaves move_player unchanged; transitions wired by C06",
+    "Defensive .get(dir) draws a wall on malformed Room rather than crashing"
+  ],
+  "api_endpoints": [],
+  "public_symbols": [
+    "draw_room(surface: pygame.Surface, room: Room) -> None (changed signature)"
+  ],
+  "dependencies": ["C01"],
+  "risks": [
+    "R1 — Surface.get_at headless variability; mitigated by [:3] slice and documented recorder-based fallback",
+    "R2 — current_room module-global leak; mitigated by REQ-030 test"
+  ],
+  "estimated_complexity": "low",
+  "traced_requirements": [
+    "REQ-021", "REQ-022", "REQ-023", "REQ-024",
+    "REQ-025", "REQ-026", "REQ-027", "REQ-028",
+    "REQ-029", "REQ-030"
+  ],
+  "files_touched": ["adventure.py"]
+}

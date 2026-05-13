@@ -1,0 +1,36 @@
+{
+  "component_id": "C06",
+  "name": "GameLoopIntegration",
+  "status": "designed",
+  "key_decisions": [
+    "run_game_loop validates ROOMS via assert_symmetric then assert_connected before frame processing",
+    "loop consumes move_player discriminated exit tuple and calls _warp_position before draw_room",
+    "tests/test_movement.py is reconciled with a sealed-edge room fixture to preserve T2 clamp invariants",
+    "transition verification is split across tests/test_rooms.py and adversarial E2E scenarios"
+  ],
+  "api_endpoints": [],
+  "public_symbols": [
+    "run_game_loop(surface, *, fps=TARGET_FPS, event_getter=pygame.event.get) -> None (integrated transitions)",
+    "tests/test_rooms.py (new)",
+    "tests/e2e/adversarial/test_rooms_adversarial.py (new)"
+  ],
+  "dependencies": ["C02", "C03", "C04", "C05"],
+  "risks": [
+    "R2 — current_room leakage if loop-local discipline is broken",
+    "R7 — legacy test regressions while integrating movement/render/warp"
+  ],
+  "estimated_complexity": "high",
+  "traced_requirements": [
+    "REQ-015", "REQ-016", "REQ-017", "REQ-018", "REQ-019", "REQ-020",
+    "REQ-043", "REQ-044", "REQ-045", "REQ-046", "REQ-047",
+    "REQ-048", "REQ-049", "REQ-050", "REQ-051", "REQ-052",
+    "REQ-053", "REQ-054", "REQ-055", "REQ-056", "REQ-057", "REQ-058",
+    "REQ-059", "REQ-060", "REQ-061", "REQ-062", "REQ-063"
+  ],
+  "files_touched": [
+    "adventure.py",
+    "tests/test_rooms.py",
+    "tests/test_movement.py",
+    "tests/e2e/adversarial/test_rooms_adversarial.py"
+  ]
+}

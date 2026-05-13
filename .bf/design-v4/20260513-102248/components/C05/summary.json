@@ -1,0 +1,26 @@
+{
+  "component_id": "C05",
+  "name": "TransitionWarpHelper",
+  "status": "designed",
+  "key_decisions": [
+    "_warp_position is a pure helper with no pygame dependency",
+    "INWARD_OFFSET is defined as PLAYER_SPEED + 1 to avoid immediate re-transition",
+    "warp uses mirror mapping plus perpendicular clamp for each cardinal direction",
+    "invalid warp requests raise ValueError for sealed edges, unknown rooms, and bad directions"
+  ],
+  "api_endpoints": [],
+  "public_symbols": [
+    "INWARD_OFFSET: int",
+    "_warp_position(room: Room, exit_dir: str, x: int, y: int) -> tuple[Room, int, int]"
+  ],
+  "dependencies": ["C01"],
+  "risks": [
+    "R4 — hold-to-retrigger loops if inward offset is too small",
+    "R6 — bad neighbor ids if registry authoring regresses"
+  ],
+  "estimated_complexity": "low",
+  "traced_requirements": [
+    "REQ-037", "REQ-038", "REQ-039", "REQ-040", "REQ-041", "REQ-042"
+  ],
+  "files_touched": ["adventure.py"]
+}

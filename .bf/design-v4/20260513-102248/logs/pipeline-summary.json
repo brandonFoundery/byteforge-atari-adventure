@@ -1,0 +1,26 @@
+{
+  "run_id": "20260513-102248",
+  "pipeline": "design-v4",
+  "completed_at": "2026-05-13T21:42:15Z",
+  "overall_status": "success",
+  "phases": {
+    "plan": {"status": "success", "components_planned": 6},
+    "architect": {"status": "success", "components_designed": 6},
+    "audit": {"status": "success", "passed": 6, "failed": 0, "remediations": 0},
+    "assemble": {"status": "success", "artifacts_written": 5},
+    "phase6_gate": {
+      "status": "pass",
+      "all_pass": true,
+      "rules_failed": [],
+      "verdict_path": ".bf/design-v4/20260513-102248/phase0/verdict.json"
+    }
+  },
+  "failures": [],
+  "inefficiencies": [
+    "Initial attempt ended in partial state (C01-C03 only); failover completed C04-C06 and downstream phases in one pass"
+  ],
+  "recommendations": [
+    "Emit architect/auditor logs incrementally during component completion to reduce failover recovery time",
+    "Persist explicit per-component completion checkpoints to avoid re-reading all artifacts on resume"
+  ]
+}

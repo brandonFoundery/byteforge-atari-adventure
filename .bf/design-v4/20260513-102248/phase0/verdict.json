@@ -1,0 +1,50 @@
+{
+  "run_id": "20260513-102248",
+  "judged_at": "2026-05-13T21:41:13.177448+00:00",
+  "all_pass": true,
+  "rules": {
+    "DESIGN_RULE_1": {
+      "name": "Interfaces compile",
+      "pass": true,
+      "status": "pass",
+      "evidence": "dotnet build returned 0 (387 bytes)"
+    },
+    "DESIGN_RULE_2": {
+      "name": "Schemas validate",
+      "pass": true,
+      "status": "pass",
+      "evidence": "all 0 schemas validate against draft-2020-12"
+    },
+    "DESIGN_RULE_3": {
+      "name": "Migrations apply",
+      "pass": true,
+      "status": "warn",
+      "evidence": "no .cypher migrations extracted from design prose"
+    },
+    "DESIGN_RULE_4": {
+      "name": "Acceptance tests compile and fail",
+      "pass": true,
+      "status": "pass",
+      "evidence": "compiled and 63 tests failed (0 passed) as required"
+    },
+    "DESIGN_RULE_5": {
+      "name": "REQ coverage complete",
+      "pass": true,
+      "status": "pass",
+      "evidence": "100% coverage (63 REQs)"
+    },
+    "DESIGN_RULE_7": {
+      "name": "No unverified claims",
+      "pass": true,
+      "status": "warn",
+      "evidence": "no prose/rationale.md to scan (Phase 0 doesn't extract one)"
+    },
+    "DESIGN_RULE_6": {
+      "name": "No cross-run drift",
+      "pass": true,
+      "status": "pass",
+      "evidence": "single-run mode \u2014 cross-run rule N/A"
+    }
+  },
+  "drift_findings": []
+}
