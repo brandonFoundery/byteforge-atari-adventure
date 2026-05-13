@@ -1,0 +1,25 @@
+{
+  "phase": "context",
+  "project_ledger": {
+    "status": "not_available",
+    "checked_paths": [
+      "project-memory/features/features.json",
+      "features/features.json"
+    ]
+  },
+  "triptych": {
+    "status": "not_available",
+    "fallback": "rg code search over adventure.py and tests"
+  },
+  "blast_radius_estimate": {
+    "estimated_files_touched": 3,
+    "services_or_components": [
+      "Room registry + graph validation",
+      "Room-aware movement/render/warp",
+      "Room transition tests"
+    ],
+    "feature_areas": [],
+    "endpoint_changes_likely": false,
+    "db_or_schema_changes_likely": false
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "pipeline-lineage-v1",
+  "slice_id": null,
+  "chain": {
+    "understand": {
+      "run_id": "20260513-102248",
+      "run_root": ".bf/understand-v4/20260513-102248"
+    },
+    "elicit": {
+      "run_id": "20260513-102248",
+      "run_root": ".bf/elicit-v4/20260513-102248"
+    },
+    "design": {
+      "run_id": "20260513-102248",
+      "run_root": ".bf/design-v4/20260513-102248"
+    },
+    "task": {
+      "run_id": "20260513-102248",
+      "run_root": ".bf/task-v4/20260513-102248"
+    },
+    "go": {
+      "run_id": "go-20260513-183037",
+      "run_root": ".bf/go/go-20260513-183037",
+      "status": "complete",
+      "files_modified": [],
+      "plan": ".bf/go/go-20260513-183037/plan.json"
+    }
+  },
+  "work_item_id": "c847ce28-daf2-4b0e-6c13-08deb0efcb30",
+  "execution_id": "cfaabcda-7933-4155-8fa3-30605b9f8e90",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "provider": "codex",
+  "complexity": "Moderate"
+}

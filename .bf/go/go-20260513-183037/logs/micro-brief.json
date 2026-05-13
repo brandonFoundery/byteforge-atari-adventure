@@ -1,0 +1,25 @@
+{
+  "phase": "micro-brief",
+  "goal": "Deliver and verify deterministic 4-room world transitions with distinct room colors.",
+  "non_goals": [
+    "No new mechanics beyond transitions",
+    "No dependency upgrades",
+    "No schema or endpoint changes"
+  ],
+  "constraints": [
+    "Preserve existing interfaces/tests",
+    "Keep deterministic movement and transition behavior",
+    "Maintain headless pygame compatibility"
+  ],
+  "done_criteria": [
+    "4-room graph with valid symmetric/connectivity checks",
+    "Edge passages transition and warp inward",
+    "Sealed edges clamp",
+    "Room color rendering and transition tests pass"
+  ],
+  "test_expectation": "unit + integration + adversarial tests (~50 assertions)",
+  "confirmation": {
+    "status": "auto-confirmed",
+    "reason": "failover execution requested non-interactive completion"
+  }
+}

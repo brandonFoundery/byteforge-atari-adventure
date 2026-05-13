@@ -1,0 +1,16 @@
+{
+  "run_id": "go-20260513-183037",
+  "started_at_utc": "2026-05-13T22:30:37Z",
+  "provider": "codex",
+  "complexity": "Moderate",
+  "stage": "/bf:go",
+  "title": "T3 — Multi-room world + screen transitions (4-6 rooms, edge transitions, distinct colors)",
+  "work_item_id": "c847ce28-daf2-4b0e-6c13-08deb0efcb30",
+  "execution_id": "cfaabcda-7933-4155-8fa3-30605b9f8e90",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "status": "in_progress",
+  "notes": [
+    "Failover run executed in current CLI due upstream resource limit.",
+    "Micro-brief confirmation auto-applied per non-interactive failover rule."
+  ]
+}
