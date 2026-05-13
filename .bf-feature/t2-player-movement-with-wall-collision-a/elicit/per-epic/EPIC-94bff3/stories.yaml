@@ -1,0 +1,38 @@
+schema: stories-v1
+feature_slug: t2-player-movement-with-wall-collision-a
+feature_witness: b6731a13a9b00140
+
+stories:
+  - schema: story-v1
+    story_id: STORY-43ac67
+    epic_id: EPIC-94bff3
+    title: Arrow-key input detection and directional dispatch
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - "adventure.PLAYER_SPEED returns a positive integer value"
+      - "adventure.move_player accepts x, y, and keys_pressed parameters and returns updated x, y coordinates"
+      - "pressing K_RIGHT returns x incremented by PLAYER_SPEED"
+      - "pressing K_LEFT returns x decremented by PLAYER_SPEED"
+      - "pressing K_DOWN returns y incremented by PLAYER_SPEED"
+      - "pressing K_UP returns y decremented by PLAYER_SPEED"
+
+  - schema: story-v1
+    story_id: STORY-d7cd6a
+    epic_id: EPIC-94bff3
+    title: Player position update integrated into game loop
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - "move_player with no keys pressed returns x and y unchanged"
+      - "run_game_loop emits the pygame.key.get_pressed result to move_player each frame"
+
+  - schema: story-v1
+    story_id: STORY-834b3a
+    epic_id: EPIC-94bff3
+    title: Simultaneous opposite-key input resolves to net-zero motion
+    in_scope_files:
+      - adventure.py
+    acceptance_criteria:
+      - "pressing K_LEFT and K_RIGHT simultaneously returns x unchanged (net zero x-delta)"
+      - "pressing K_UP and K_DOWN simultaneously returns y unchanged (net zero y-delta)"
