@@ -1,0 +1,18 @@
+{
+  "phase": "pre-flight-gate",
+  "thresholds": {
+    "estimated_files_touched_max": 5,
+    "feature_areas_max": 2,
+    "new_endpoints_allowed": false,
+    "db_schema_change_allowed": false
+  },
+  "actual": {
+    "estimated_files_touched": 3,
+    "feature_areas": 1,
+    "scope_keywords_triggered": [],
+    "new_endpoints_required": false,
+    "db_schema_change_likely": false,
+    "restricted_domains_touched": []
+  },
+  "decision": "proceed"
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "micro-brief",
+  "goal": "Deliver verified item pickup/carry/drop behavior for chalice, key, and sword.",
+  "non_goals": [
+    "No movement-system redesign",
+    "No room-graph changes",
+    "No persistence/network/schema work"
+  ],
+  "constraints": [
+    "Use existing adventure.py structure",
+    "Preserve headless test compatibility",
+    "Keep carry-one semantics"
+  ],
+  "done_criteria": [
+    "Items initialize with fixed constants",
+    "Overlap triggers pickup only when carry slot empty",
+    "SPACE drops carried item at current player position",
+    "Build and tests pass"
+  ],
+  "test_expectation": "unit + integration tests (~10-15 assertions)",
+  "confirmation": {
+    "status": "auto-confirmed",
+    "reason": "failover execution requested non-interactive completion"
+  }
+}

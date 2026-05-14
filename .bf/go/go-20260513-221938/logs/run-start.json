@@ -1,0 +1,16 @@
+{
+  "run_id": "go-20260513-221938",
+  "started_at_utc": "2026-05-14T02:19:38Z",
+  "provider": "codex",
+  "complexity": "Moderate",
+  "stage": "/bf:go",
+  "title": "T4 — Items: pickup, carry-one, drop (chalice + key + sword, touch-to-pickup, drop on keypress)",
+  "work_item_id": "901b7299-81f1-4995-6c14-08deb0efcb30",
+  "execution_id": "11a80ecc-3170-4867-9ea8-43eb07100526",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "status": "in_progress",
+  "notes": [
+    "Failover run executed in current CLI due upstream resource limit.",
+    "Micro-brief confirmation auto-applied per non-interactive failover rule."
+  ]
+}

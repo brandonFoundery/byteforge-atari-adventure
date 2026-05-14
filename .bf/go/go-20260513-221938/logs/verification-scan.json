@@ -1,0 +1,24 @@
+{
+  "phase": "verify",
+  "scan_type": "quality-pattern-scan",
+  "status": "PASS",
+  "changed_files": [],
+  "block_patterns": [
+    "TODO",
+    "FIXME",
+    "HACK",
+    "NotImplementedException",
+    "throw new Error(\"not implemented\")",
+    "Mock<",
+    "jest.mock",
+    "vi.mock",
+    ".skip(",
+    "xtest",
+    "xit",
+    "test.todo",
+    "hardcoded secret"
+  ],
+  "allowlist": [],
+  "violations": [],
+  "warnings": []
+}

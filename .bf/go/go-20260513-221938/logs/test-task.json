@@ -1,0 +1,13 @@
+{
+  "task": "Test: T4 — Items: pickup, carry-one, drop",
+  "status": "completed",
+  "signal": "TESTS PASS",
+  "commands": [
+    "python -m pytest tests/test_items.py -q",
+    "python -m pytest -q"
+  ],
+  "results": [
+    "11 passed, 2 warnings",
+    "102 passed, 2 warnings"
+  ]
+}

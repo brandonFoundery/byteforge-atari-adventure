@@ -1,0 +1,12 @@
+{
+  "phase": "build-gate",
+  "bf_go_red_baseline": "hard-stop (default)",
+  "command_selection": {
+    "claude_md_present": false,
+    "sln_present": false,
+    "package_json_present": false,
+    "fallback": "python -m py_compile adventure.py"
+  },
+  "build_command": "python -m py_compile adventure.py",
+  "result": "green"
+}

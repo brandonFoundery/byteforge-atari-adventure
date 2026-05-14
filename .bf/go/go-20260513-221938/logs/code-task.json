@@ -1,0 +1,7 @@
+{
+  "task": "Implement: T4 — Items: pickup, carry-one, drop",
+  "status": "completed",
+  "signal": "CODE READY",
+  "files_changed": [],
+  "summary": "Implementation already present at branch head (adventure.py includes constants, pickup, carry-one, and drop-on-space)."
+}

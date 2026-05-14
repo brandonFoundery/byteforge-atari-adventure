@@ -1,0 +1,13 @@
+{
+  "team_name": "go-20260513-221938",
+  "mode": "inline-equivalent",
+  "status": "configured",
+  "tasks": [
+    "Implement: T4 items pickup/carry/drop",
+    "Test: T4 items pickup/carry/drop"
+  ],
+  "notes": [
+    "No dedicated TeamCreate/TaskCreate runtime available in this CLI.",
+    "Equivalent orchestration and gates executed directly in failover mode."
+  ]
+}

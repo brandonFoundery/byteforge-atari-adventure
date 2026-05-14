@@ -1,0 +1,25 @@
+{
+  "schema": "pipeline-lineage-v1",
+  "chain": {
+    "understand": {
+      "run_id": "20260513-190332",
+      "run_root": ".bf/understand-v4/20260513-190332"
+    },
+    "task": {
+      "feature_slug": "t4-items-pickup-carry-one-drop-chalice-k",
+      "run_root": ".bf-feature/t4-items-pickup-carry-one-drop-chalice-k/task"
+    },
+    "go": {
+      "run_id": "go-20260513-221938",
+      "run_root": ".bf/go/go-20260513-221938",
+      "status": "complete",
+      "files_modified": [],
+      "plan": ".bf/go/go-20260513-221938/plan.json"
+    }
+  },
+  "work_item_id": "901b7299-81f1-4995-6c14-08deb0efcb30",
+  "execution_id": "11a80ecc-3170-4867-9ea8-43eb07100526",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "provider": "codex",
+  "complexity": "Moderate"
+}
