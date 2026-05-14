@@ -1,0 +1,25 @@
+{
+  "component_id": "C04",
+  "name": "RoomAwareMovement",
+  "status": "designed",
+  "key_decisions": [
+    "move_player keeps a legacy room=None branch for T2 compatibility",
+    "room-aware mode emits a discriminated exit tuple ('exit', dir) on passage-edge crossing",
+    "horizontal axis is evaluated before vertical to enforce deterministic diagonal tie handling",
+    "sealed edges clamp to existing T2 boundaries with unchanged constants"
+  ],
+  "api_endpoints": [],
+  "public_symbols": [
+    "move_player(x: int, y: int, keys_pressed, room: Room | None = None) -> tuple[int, int] | tuple[str, str]"
+  ],
+  "dependencies": ["C01"],
+  "risks": [
+    "R3 — legacy caller breakage if room=None behavior regresses",
+    "R5 — diagonal ambiguity if evaluation order changes"
+  ],
+  "estimated_complexity": "medium",
+  "traced_requirements": [
+    "REQ-031", "REQ-032", "REQ-033", "REQ-034", "REQ-035", "REQ-036"
+  ],
+  "files_touched": ["adventure.py"]
+}

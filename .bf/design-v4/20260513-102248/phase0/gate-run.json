@@ -1,0 +1,12 @@
+{
+  "postprocess": {
+    "exit_code": 0,
+    "stdout": "Phase 0 extraction complete: /Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/c847ce28/.bf/design-v4/20260513-102248/phase0\n  See /Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/c847ce28/.bf/design-v4/20260513-102248/phase0/extraction-summary.json\n",
+    "stderr": ""
+  },
+  "judge": {
+    "exit_code": 0,
+    "stdout": "Verdict: PASS\n  Wrote .bf/design-v4/20260513-102248/phase0/verdict.json\n  [PASS] DESIGN_RULE_1: Interfaces compile -- dotnet build returned 0 (387 bytes)\n  [PASS] DESIGN_RULE_2: Schemas validate -- all 0 schemas validate against draft-2020-12\n  [PASS] DESIGN_RULE_3: Migrations apply -- no .cypher migrations extracted from design prose\n  [PASS] DESIGN_RULE_4: Acceptance tests compile and fail -- compiled and 63 tests failed (0 passed) as required\n  [PASS] DESIGN_RULE_5: REQ coverage complete -- 100% coverage (63 REQs)\n  [PASS] DESIGN_RULE_7: No unverified claims -- no prose/rationale.md to scan (Phase 0 doesn't extract one)\n  [PASS] DESIGN_RULE_6: No cross-run drift -- single-run mode \u2014 cross-run rule N/A\n",
+    "stderr": ""
+  }
+}

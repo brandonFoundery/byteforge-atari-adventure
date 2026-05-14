@@ -1,0 +1,18 @@
+{
+  "agent": "assembler",
+  "run_id": "20260513-102248",
+  "phase": "assemble",
+  "started_at": "2026-05-13T21:42:15Z",
+  "completed_at": "2026-05-13T21:42:15Z",
+  "status": "success",
+  "artifacts_written": [
+    "final/design.md",
+    "completion-report.md",
+    "phase0/extraction-summary.json",
+    "phase0/verdict.json",
+    "phase0/gate-run.json"
+  ],
+  "metrics": {"components_assembled": 6, "requirements_covered": 63},
+  "errors": [],
+  "notes": "Phase 6 gate executed successfully and appended to completion report as advisory output."
+}

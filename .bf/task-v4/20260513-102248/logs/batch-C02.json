@@ -1,0 +1,13 @@
+{
+  "batch_id": "C02",
+  "name": "RoomAwareRendering+Movement+Warp",
+  "status": "PASS",
+  "tests_written": 20,
+  "prod_files": ["adventure.py"],
+  "test_files": ["tests/test_rooms.py", "tests/test_movement.py"],
+  "green_phase": {
+    "command": "python -m pytest tests/test_movement.py tests/test_rooms.py -q",
+    "result": {"passed": 56, "failed": 0}
+  },
+  "completed_at_utc": "2026-05-13T22:23:55Z"
+}

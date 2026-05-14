@@ -1,0 +1,15 @@
+{
+  "task": "Test: T3 — Multi-room world + screen transitions",
+  "status": "completed",
+  "signal": "TESTS PASS",
+  "commands": [
+    "python -m pytest tests/test_rooms.py tests/e2e/adversarial/test_rooms_adversarial.py -q",
+    "python -m pytest tests/test_adventure.py tests/test_movement.py tests/test_rooms.py tests/e2e/adversarial/test_rooms_adversarial.py -q",
+    "python -m pytest -q"
+  ],
+  "results": [
+    "52 passed, 2 warnings in 0.47s",
+    "65 passed, 2 warnings in 0.50s",
+    "143 passed, 2 warnings in 2.27s"
+  ]
+}

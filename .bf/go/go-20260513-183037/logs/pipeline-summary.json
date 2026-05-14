@@ -1,0 +1,24 @@
+{
+  "run_id": "go-20260513-183037",
+  "stage": "/bf:go",
+  "status": "PASS",
+  "phases": [
+    {"name": "context", "status": "PASS"},
+    {"name": "micro-brief", "status": "PASS"},
+    {"name": "pre-flight-gate", "status": "PASS"},
+    {"name": "build-gate", "status": "PASS"},
+    {"name": "team-setup", "status": "PASS"},
+    {"name": "implement", "status": "PASS"},
+    {"name": "test", "status": "PASS"},
+    {"name": "runtime-gate", "status": "PASS"},
+    {"name": "verify", "status": "PASS"},
+    {"name": "close", "status": "PASS"}
+  ],
+  "changed_files": [],
+  "tests": {
+    "scoped": "52 passed",
+    "targeted": "65 passed",
+    "full": "143 passed"
+  },
+  "report": ".bf/go/go-20260513-183037/completion-report.md"
+}

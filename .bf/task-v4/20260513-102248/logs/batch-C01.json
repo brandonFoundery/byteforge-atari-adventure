@@ -1,0 +1,13 @@
+{
+  "batch_id": "C01",
+  "name": "RoomDataModel+RegistryValidators",
+  "status": "PASS",
+  "tests_written": 11,
+  "prod_files": ["adventure.py"],
+  "test_files": ["tests/test_rooms.py"],
+  "green_phase": {
+    "command": "python -m pytest tests/test_rooms.py -q -k \"dataclass_exists or rooms_registry_has_four_rooms or start_room_constant or room_color_alias_preserved or start_room_bg_color_matches_room_color or room_is_frozen or room_neighbors_structure or sealed_edge_is_none or passage_edge_is_string or assert_symmetric_passes_on_valid_rooms or assert_connected_passes_on_valid_rooms or assert_symmetric_raises_on_asymmetric_registry or assert_connected_raises_on_disconnected_registry\"",
+    "result": {"passed": 11, "failed": 0}
+  },
+  "completed_at_utc": "2026-05-13T22:23:55Z"
+}

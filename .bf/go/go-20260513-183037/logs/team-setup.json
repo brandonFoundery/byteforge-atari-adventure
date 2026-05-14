@@ -1,0 +1,13 @@
+{
+  "team_name": "go-20260513-183037",
+  "mode": "inline-equivalent",
+  "status": "configured",
+  "tasks": [
+    "Implement: T3 multi-room transitions",
+    "Test: T3 multi-room transitions"
+  ],
+  "notes": [
+    "No dedicated subagent runtime required; equivalent orchestration executed directly in this CLI.",
+    "Coder/tester phases executed sequentially with deterministic commands."
+  ]
+}

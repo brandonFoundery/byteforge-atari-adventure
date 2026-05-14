@@ -1,0 +1,5 @@
+{
+  "gate": "playwright-smoke",
+  "status": "skipped",
+  "reason": "No batch prod_files under frontend/src/app/ in this run"
+}

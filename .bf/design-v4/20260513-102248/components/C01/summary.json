@@ -1,0 +1,29 @@
+{
+  "component_id": "C01",
+  "name": "RoomDataModelAndRegistry",
+  "status": "designed",
+  "key_decisions": [
+    "Room is a @dataclass(frozen=True) with id, bg_color, neighbors fields",
+    "ROOMS is a module-level dict authored in insertion order yellow, blue, green, purple",
+    "START_ROOM = 'yellow'; ROOMS[START_ROOM].bg_color == ROOM_COLOR == (240, 208, 64) preserves T1/T2 visuals",
+    "neighbors[dir] is None encodes sealed; a string id encodes passage",
+    "C01 does NOT validate at import; validators (C02) are called once at registry-construction in C06"
+  ],
+  "api_endpoints": [],
+  "public_symbols": [
+    "Room (class)",
+    "ROOMS (dict[str, Room])",
+    "START_ROOM (str)",
+    "ROOM_COLOR (tuple[int,int,int]) preserved"
+  ],
+  "dependencies": [],
+  "risks": [
+    "Authoring error in adjacency (R6) — mitigated by C02 validators called from C06"
+  ],
+  "estimated_complexity": "low",
+  "traced_requirements": [
+    "REQ-001", "REQ-002", "REQ-003", "REQ-004",
+    "REQ-005", "REQ-006", "REQ-007", "REQ-008"
+  ],
+  "files_touched": ["adventure.py"]
+}

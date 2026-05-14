@@ -1,0 +1,24 @@
+{
+  "component_id": "C02",
+  "name": "RegistryValidators",
+  "status": "designed",
+  "key_decisions": [
+    "Validators are pure module-level functions on adventure.py (not Room methods)",
+    "assert_symmetric skips sealed edges and reports first asymmetric edge with offender + direction",
+    "assert_connected uses BFS over passage edges; missing rooms reported sorted",
+    "assert_symmetric is the authority on unknown room ids; assert_connected silently skips them",
+    "Validators invoked once inside run_game_loop (NOT at import time)"
+  ],
+  "api_endpoints": [],
+  "public_symbols": [
+    "assert_symmetric(rooms: dict[str, Room]) -> None",
+    "assert_connected(rooms: dict[str, Room], start: str) -> None"
+  ],
+  "dependencies": ["C01"],
+  "risks": [],
+  "estimated_complexity": "low",
+  "traced_requirements": [
+    "REQ-009", "REQ-010", "REQ-011", "REQ-012", "REQ-013", "REQ-014"
+  ],
+  "files_touched": ["adventure.py"]
+}

@@ -1,0 +1,5 @@
+{
+  "stage": "background-sync",
+  "status": "skipped",
+  "reason": "No tracked feature/progress sync artifacts required for this repository layout"
+}

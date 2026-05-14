@@ -1,0 +1,7 @@
+{
+  "scan": "production-files-quality",
+  "status": "PASS",
+  "files": ["adventure.py"],
+  "patterns": ["TODO", "FIXME", "NotImplementedException", "mock", "hardcoded secret", "SECRET", "PASSWORD", "API_KEY"],
+  "violations": []
+}

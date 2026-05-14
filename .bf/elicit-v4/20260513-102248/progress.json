@@ -1,0 +1,70 @@
+{
+  "run_id": "20260513-102248",
+  "mode": "understand-driven",
+  "understand_root": ".bf/understand-v4/20260513-102248/diamond",
+  "req_counter": 63,
+  "req_reservations": {
+    "EPIC-001": "REQ-001..REQ-020 (used)",
+    "EPIC-002": "REQ-021..REQ-030 (reserved)",
+    "EPIC-003": "REQ-031..REQ-063 (used)"
+  },
+  "epics": [
+    {
+      "id": "EPIC-001",
+      "title": "Room model + registry (foundation, no behavior change)",
+      "success_criterion": "Game contains 4-6 distinct rooms with per-room bg_color and a connected adjacency graph; registry validates symmetry and connectivity; T1/T2 tests still pass.",
+      "stories": ["STORY-001-1", "STORY-001-2", "STORY-001-3"],
+      "status": "complete",
+      "req_range": "REQ-001..REQ-020",
+      "artifacts": {
+        "epic": ".bf/elicit-v4/20260513-102248/epics/EPIC-001.md",
+        "stories": [
+          ".bf/elicit-v4/20260513-102248/stories/STORY-001-1.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-001-2.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-001-3.md"
+        ],
+        "mocks": []
+      }
+    },
+    {
+      "id": "EPIC-002",
+      "title": "Room-aware rendering + active room state",
+      "success_criterion": "draw_room renders the active room's bg_color and renders walls only on sealed edges; run_game_loop threads current_room as a local (no module global); rendered frame reflects the active room.",
+      "stories": ["STORY-002-1", "STORY-002-2", "STORY-002-3"],
+      "status": "complete",
+      "req_range": "REQ-021..REQ-030",
+      "artifacts": {
+        "epic": ".bf/elicit-v4/20260513-102248/epics/EPIC-002.md",
+        "stories": [
+          ".bf/elicit-v4/20260513-102248/stories/STORY-002-1.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-002-2.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-002-3.md"
+        ],
+        "mocks": [".bf/elicit-v4/20260513-102248/mocks/MOCK-EPIC-002.md"]
+      }
+    },
+    {
+      "id": "EPIC-003",
+      "title": "Edge transitions + room-aware movement",
+      "success_criterion": "Crossing a passage edge swaps current_room and warps the player to the opposite edge (mirrored coordinate, inward offset to prevent re-trigger); sealed edges still clamp; full graph is walkable; re-entry is deterministic; tests/test_movement.py wall-clamp tests reconciled.",
+      "stories": ["STORY-003-1", "STORY-003-2", "STORY-003-3", "STORY-003-4", "STORY-003-5", "STORY-003-6"],
+      "status": "complete",
+      "req_range": "REQ-031..REQ-063",
+      "artifacts": {
+        "epic": ".bf/elicit-v4/20260513-102248/epics/EPIC-003.md",
+        "stories": [
+          ".bf/elicit-v4/20260513-102248/stories/STORY-003-1.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-003-2.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-003-3.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-003-4.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-003-5.md",
+          ".bf/elicit-v4/20260513-102248/stories/STORY-003-6.md"
+        ],
+        "mocks": [
+          ".bf/elicit-v4/20260513-102248/mocks/MOCK-003-transition.md"
+        ]
+      }
+    }
+  ],
+  "status": "complete"
+}

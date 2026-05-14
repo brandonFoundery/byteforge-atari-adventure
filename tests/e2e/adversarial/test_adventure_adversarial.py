@@ -175,9 +175,9 @@ class TestGameLoopLogic:
         render_calls = {"n": 0}
         original_draw_room = adventure.draw_room
 
-        def counting_draw_room(s):
+        def counting_draw_room(s, room=None):
             render_calls["n"] += 1
-            original_draw_room(s)
+            original_draw_room(s, room)
 
         adventure.draw_room = counting_draw_room
 

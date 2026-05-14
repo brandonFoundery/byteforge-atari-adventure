@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "project": "Atari Adventure Homage (Python pygame)",
+    "created": "2026-05-13",
+    "updated": "2026-05-13",
+    "watermarks": {
+      "elicit-v4-processed": [],
+      "discovery-v4-processed": [
+        "20260513-102248"
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "id": "T1",
+      "name": "Game Loop + Render Foundation",
+      "level": "feature",
+      "group": "core",
+      "status": "done",
+      "notes": "T1 \u2014 Atari Adventure homage: game loop + render foundation (Python pygame). Implemented and tested."
+    },
+    {
+      "id": "T2",
+      "name": "Player Movement with Wall Collision",
+      "level": "feature",
+      "group": "core",
+      "status": "done",
+      "notes": "T2 \u2014 Arrow-key input, 4-direction movement, wall collision. Implemented and tested."
+    },
+    {
+      "id": "T3",
+      "name": "Multi-Room World + Screen Transitions",
+      "level": "feature",
+      "group": "core",
+      "status": "in_progress",
+      "notes": "Requirements elicited in elicit-v4/20260513-102248 (63 requirements). 3 epics: Room model+registry (EPIC-001), Room-aware rendering (EPIC-002), Edge transitions (EPIC-003). 12 stories total."
+    }
+  ],
+  "edges": [
+    {
+      "from": "T1",
+      "to": "T2",
+      "note": "T2 builds on T1"
+    },
+    {
+      "from": "T2",
+      "to": "T3",
+      "note": "T3 builds on T2"
+    }
+  ]
+}

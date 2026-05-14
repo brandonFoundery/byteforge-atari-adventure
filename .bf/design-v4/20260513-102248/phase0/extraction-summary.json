@@ -1,0 +1,34 @@
+{
+  "source_run": "/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/c847ce28/.bf/design-v4/20260513-102248",
+  "out_dir": "/Users/brandonshuey/data/ByteForge/Repositories/e0710c02-7a18-467f-8a6e-519bafe16e3e/.bf-worktrees/c847ce28/.bf/design-v4/20260513-102248/phase0",
+  "extracted_at": "2026-05-13T21:41:02.790770+00:00",
+  "limitations": [],
+  "artifacts": {
+    "interfaces": {
+      "file": "contracts/interfaces.cs",
+      "interface_count": 0,
+      "interfaces": [],
+      "method_count": 0
+    },
+    "schemas": {
+      "file": "contracts/schemas.json",
+      "schema_count": 0
+    },
+    "migrations": {
+      "dir": "contracts/migrations",
+      "count": 0
+    },
+    "tests": {
+      "file": "tests/acceptance/Acceptance.cs",
+      "req_count": 63
+    },
+    "traces": {
+      "file": "traces/req-to-artifact.csv",
+      "row_count": 126
+    },
+    "falsifications": {
+      "dir": "falsifications",
+      "note": "Phase 3 fills these."
+    }
+  }
+}

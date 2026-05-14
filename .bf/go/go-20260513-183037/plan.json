@@ -1,0 +1,59 @@
+{
+  "run_id": "go-20260513-183037",
+  "ticket_id": "c847ce28-daf2-4b0e-6c13-08deb0efcb30",
+  "task": "T3 — Multi-room world + screen transitions (4-6 rooms, edge transitions, distinct colors)",
+  "provider": "codex",
+  "complexity": "Moderate",
+  "work_item_id": "c847ce28-daf2-4b0e-6c13-08deb0efcb30",
+  "execution_id": "cfaabcda-7933-4155-8fa3-30605b9f8e90",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "title": "T3 — Multi-room world + screen transitions (4-6 rooms, edge transitions, distinct colors)",
+  "execution_mode": "inline-failover",
+  "stage": "/bf:go",
+  "source_command": "/bf:go --ticket-id c847ce28-daf2-4b0e-6c13-08deb0efcb30 T3 — Multi-room world + screen transitions (4-6 rooms, edge transitions, distinct colors)",
+  "notes": [
+    "No AGENTS.md/CLAUDE.md present in repository; default /bf:go gate behavior applied.",
+    "Triptych tools unavailable in this CLI; equivalent code-search context gathering used.",
+    "Per failover directive, micro-brief confirmation was auto-applied (non-interactive run)."
+  ],
+  "blast_radius_estimate": {
+    "estimated_files_touched": 3,
+    "services_or_components": [
+      "adventure.Room graph and topology validators",
+      "adventure.move_player/draw_room/_warp_position transitions",
+      "room transition unit + adversarial tests"
+    ],
+    "feature_areas_from_ledger": [],
+    "triptych_status": "not_available",
+    "ledger_status": "not_available",
+    "endpoint_changes_likely": false,
+    "db_or_schema_changes_likely": false
+  },
+  "micro_brief": {
+    "goal": "Deliver and verify a 4-room multi-screen world with deterministic edge transitions and distinct room colors.",
+    "non_goals": [
+      "No new game mechanics beyond room transitions",
+      "No changes to packaging/dependencies",
+      "No UI redesign outside room color/wall-passages behavior"
+    ],
+    "constraints": [
+      "Preserve T1/T2 compatibility paths",
+      "Keep movement deterministic under diagonal/held-key input",
+      "Preserve existing pygame headless test harness"
+    ],
+    "done_criteria": [
+      "ROOMS registry has 4 distinct rooms with bidirectional links",
+      "Crossing open edge returns transition signal and warps inward",
+      "Sealed edges clamp movement",
+      "Game loop renders active room and supports cross-room traversal",
+      "Scoped and full tests pass"
+    ],
+    "test_expectation": {
+      "type": "unit+integration+adversarial",
+      "estimate_count": 50
+    },
+    "auto_confirmed": true
+  },
+  "build_command": "python -m py_compile adventure.py",
+  "test_command": "python -m pytest tests/test_rooms.py tests/e2e/adversarial/test_rooms_adversarial.py -q"
+}

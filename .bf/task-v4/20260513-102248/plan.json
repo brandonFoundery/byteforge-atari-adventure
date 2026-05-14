@@ -1,0 +1,82 @@
+{
+  "run_id": "20260513-102248",
+  "ticket_id": "c847ce28-daf2-4b0e-6c13-08deb0efcb30",
+  "task": "T3 — Multi-room world + screen transitions (4-6 rooms, edge transitions, distinct colors)",
+  "design_root": ".bf/design-v4/20260513-102248",
+  "elicit_root": ".bf/elicit-v4/20260513-102248",
+  "requirements_trace": ".bf/elicit-v4/20260513-102248/final/requirements-trace.md",
+  "prod_files": [
+    "adventure.py"
+  ],
+  "test_files": [
+    "tests/test_rooms.py",
+    "tests/test_movement.py",
+    "tests/e2e/adversarial/test_rooms_adversarial.py"
+  ],
+  "batches": [
+    {
+      "id": "C01",
+      "name": "RoomDataModel+RegistryValidators",
+      "components": [
+        "C01",
+        "C02"
+      ],
+      "prod_files": [
+        "adventure.py"
+      ],
+      "test_files": [
+        "tests/test_rooms.py"
+      ],
+      "test_count": 11,
+      "description": "Add Room dataclass, ROOMS registry, START_ROOM, ROOM_COLOR alias, OPPOSITE, assert_symmetric, assert_connected. Pure data additions — no behavior changes.",
+      "reqs": "REQ-001..REQ-014"
+    },
+    {
+      "id": "C02",
+      "name": "RoomAwareRendering+Movement+Warp",
+      "components": [
+        "C03",
+        "C04",
+        "C05"
+      ],
+      "prod_files": [
+        "adventure.py"
+      ],
+      "test_files": [
+        "tests/test_rooms.py",
+        "tests/test_movement.py"
+      ],
+      "test_count": 20,
+      "description": "Generalize draw_room(surface, room), extend move_player with room=None param, add INWARD_OFFSET and _warp_position helper. Reconcile test_movement.py for new signature.",
+      "reqs": "REQ-021..REQ-042, REQ-048..REQ-058"
+    },
+    {
+      "id": "C03",
+      "name": "GameLoopIntegration+FullTestCoverage",
+      "components": [
+        "C06"
+      ],
+      "prod_files": [
+        "adventure.py"
+      ],
+      "test_files": [
+        "tests/test_rooms.py",
+        "tests/e2e/adversarial/test_rooms_adversarial.py"
+      ],
+      "test_count": 15,
+      "description": "Wire run_game_loop with validators, current_room binding, transition handling. Land full test_rooms.py registry+integration tests and adversarial E2E suite.",
+      "reqs": "REQ-015..REQ-020, REQ-043..REQ-063"
+    }
+  ],
+  "provider": "codex",
+  "complexity": "Large",
+  "work_item_id": "c847ce28-daf2-4b0e-6c13-08deb0efcb30",
+  "execution_id": "cfaabcda-7933-4155-8fa3-30605b9f8e90",
+  "project_id": "ace51606-8045-48f8-a02b-eec2a451e2cc",
+  "title": "T3 — Multi-room world + screen transitions (4-6 rooms, edge transitions, distinct colors)",
+  "execution_mode": "inline-failover",
+  "design_source": {
+    "status": "inherited",
+    "run_root": ".bf/design-v4/20260513-102248"
+  }
+}

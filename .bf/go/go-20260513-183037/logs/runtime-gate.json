@@ -1,0 +1,8 @@
+{
+  "phase": "runtime-gate",
+  "predicted_files_changed": 3,
+  "actual_files_changed": 0,
+  "areas_touched": [],
+  "decision": "within_bounds",
+  "command": "git diff --name-only HEAD"
+}

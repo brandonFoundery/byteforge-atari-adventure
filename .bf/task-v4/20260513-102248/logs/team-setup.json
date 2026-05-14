@@ -1,0 +1,16 @@
+{
+  "team_name": "20260513-102248-pipeline",
+  "mode": "inline-equivalent",
+  "status": "configured",
+  "notes": [
+    "Executed sequential test-writer -> coder equivalent flow directly in this CLI as failover.",
+    "No separate subagent runtime is available in this environment."
+  ],
+  "tasks": [
+    "Batch C01: RoomDataModel+RegistryValidators",
+    "Batch C02: RoomAwareRendering+Movement+Warp",
+    "Batch C03: GameLoopIntegration+FullTestCoverage",
+    "Final verification",
+    "Generate report"
+  ]
+}

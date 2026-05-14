@@ -1,0 +1,13 @@
+{
+  "batch_id": "C03",
+  "name": "GameLoopIntegration+FullTestCoverage",
+  "status": "PASS",
+  "tests_written": 15,
+  "prod_files": ["adventure.py"],
+  "test_files": ["tests/test_rooms.py", "tests/e2e/adversarial/test_rooms_adversarial.py"],
+  "green_phase": {
+    "command": "python -m pytest tests/test_rooms.py tests/e2e/adversarial/test_rooms_adversarial.py -q",
+    "result": {"passed": 52, "failed": 0}
+  },
+  "completed_at_utc": "2026-05-13T22:23:55Z"
+}
