@@ -1,0 +1,178 @@
+{
+  "run_id": "20260513-222227",
+  "target": "T4 — Items: pickup, carry-one, drop (chalice + key + sword, touch-to-pickup, drop on keypress)",
+  "ticket_id": "901b7299-81f1-4995-6c14-08deb0efcb30",
+  "max_fix_attempts": 3,
+  "phase": "complete",
+  "requirements_trace": null,
+  "judge_verdict": "APPROVED",
+  "judge_revision": 1,
+  "tests": {
+    "test_cannot_pickup_second_item_while_carrying": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_carry_one_all_three_combinations": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_chalice_pickup": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_key_pickup": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_sword_pickup": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_clears_carried": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_adds_item_to_floor": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_places_item_at_player_position": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_preserves_item_kind_color_size": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_with_no_carried_is_noop": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_does_not_mutate_original_item_dict": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_drop_then_pickup_same_item": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_player_just_outside_item_does_not_trigger_pickup": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_player_just_inside_item_triggers_pickup": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_rapid_pickup_drop_cycle_state_consistent": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_floor_item_count_invariant_across_drop_cycle": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_pickup_from_empty_floor_is_safe": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_pickup_far_from_all_items_returns_unchanged_state": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_init_items_returns_three_distinct_kinds": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    },
+    "test_two_items_at_same_position_only_one_picked_up": {
+      "status": "fixed",
+      "fix_attempts": 0,
+      "petitions": [],
+      "files_changed": []
+    }
+  },
+  "petitions": [],
+  "initial_test_run": {
+    "runner": "tester",
+    "mode": "adversarial-suite",
+    "total": 20,
+    "passing": 20,
+    "failing": 0,
+    "timestamp": "2026-05-14T02:32:13Z"
+  },
+  "fix_summary": {
+    "fixed": 0,
+    "unfixed": 0,
+    "petitioned": 0
+  },
+  "final_verify": {
+    "runner": "tester",
+    "mode": "adversarial-suite",
+    "command": "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy pytest tests/e2e/adversarial/test_items_adversarial.py -v",
+    "total": 20,
+    "passing": 20,
+    "failing": 0,
+    "pass_rate": "100%",
+    "timestamp": "2026-05-14T02:32:13Z"
+  },
+  "regression_verify": {
+    "mode": "full-suite",
+    "command": "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy pytest -q",
+    "total": 122,
+    "passing": 122,
+    "failing": 0,
+    "pass_rate": "100%",
+    "timestamp": "2026-05-14T02:32:13Z"
+  },
+  "artifacts": {
+    "judge_audit": ".bf/test-v4/20260513-222227/.judge/audit-verdict.md",
+    "judge_audit_json": ".bf/test-v4/20260513-222227/.judge/audit-v1.json",
+    "final_verify": ".bf/test-v4/20260513-222227/.judge/final-verify-report.md"
+  },
+  "summary": {
+    "initial_failing": 0,
+    "fixed": 0,
+    "unfixed": 0,
+    "needs_user_input": 0,
+    "final_pass": 20,
+    "final_total": 20
+  }
+}
